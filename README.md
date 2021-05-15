@@ -1,4 +1,4 @@
-# travelperk-http-python [![tag](https://img.shields.io/github/tag/namelivia/travelperk-http-python.svg)](https://github.com/namelivia/travelperk-http-python/releases) [![Build Status](https://travis-ci.com/namelivia/travelperk-http-python.svg?branch=master)](https://travis-ci.com/namelivia/travelperk-http-python) [![codecov](https://codecov.io/gh/namelivia/travelperk-http-python/branch/master/graph/badge.svg)](https://codecov.io/gh/namelivia/travelperk-http-python) [![StyleCI](https://github.styleci.io/repos/284021612/shield?branch=master&style=flat)](https://github.styleci.io/repos/284021612?branch=master)
+# travelperk-http-python [![tag](https://img.shields.io/github/tag/namelivia/travelperk-http-python.svg)](https://github.com/namelivia/travelperk-http-python/releases) [![Build Status](https://travis-ci.com/namelivia/travelperk-http-python.svg?branch=master)](https://travis-ci.com/namelivia/travelperk-http-python) [![codecov](https://codecov.io/gh/namelivia/travelperk-http-python/branch/master/graph/badge.svg)](https://codecov.io/gh/namelivia/travelperk-http-python)
 
 ## This is WIP and by no means usable
 
