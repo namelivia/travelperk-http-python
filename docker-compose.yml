@@ -1,0 +1,13 @@
+version: '3'
+services:
+
+  travelperk-http-python:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: travelperk-http-python
+    entrypoint: "pipenv run pytest"
+    tty: false
+    working_dir: /app
+    volumes:
+      - ./:/app
