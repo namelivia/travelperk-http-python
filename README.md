@@ -3,7 +3,7 @@
 ## This is WIP and by no means usable
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/1571416/89100428-2c30cd00-d3f7-11ea-9c4a-37b17f9e9ae4.png" alt="TravelPerk Python SDK" />
+  <img src="https://user-images.githubusercontent.com/1571416/118358121-b78de000-b57d-11eb-9987-f750ed530d83.png" alt="TravelPerk Python SDK" />
 </p>
 
 ## About
