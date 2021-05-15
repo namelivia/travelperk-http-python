@@ -1,4 +1,11 @@
 from typing import List
+from .expenses import Expenses
+from .scim import SCIM
+from .webhooks import Webhooks
+from .travelsafe import TravelSafe
+from .users import Users
+from .trips import Trips
+from .cost_centers import CostCenters
 
 
 class TravelPerk:
@@ -17,13 +24,13 @@ class TravelPerk:
         $this->trips = new TripsAPI($this, $mapper);
         $this->costCenters = new CostCentersAPI($this, $mapper);
         """
-        self._expenses = None
-        self._scim = None
-        self._webhooks = None
-        self._travelsafe = None
-        self._users = None
-        self._trips = None
-        self._cost_centers = None
+        self._expenses = Expenses()
+        self._scim = SCIM()
+        self._webhooks = Webhooks()
+        self._travelsafe = TravelSafe()
+        self._users = Users()
+        self._trips = Trips()
+        self._cost_centers = CostCenters()
         self.base_url = self.SANDBOX_BASE_URL if is_sandbox else self.BASE_URL
 
     def get_auth_uri(self, target_link_uri: str) -> str:
