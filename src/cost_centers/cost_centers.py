@@ -1,9 +1,7 @@
 from typing import List, TYPE_CHECKING
 
-# This is a type from the types package
-# from .cost_centers_type import CostCentersType
-# This is a type from the types package
-# from .cost_center_detail import CostCenterDetail
+from cost_centers.cost_centers.cost_centers import CostCenters as CostCentersType
+from cost_centers.cost_centers.cost_center_detail import CostCenterDetail
 from .update_cost_center_request import UpdateCostCenterRequest
 from .bulk_update_cost_center_request import BulkUpdateCostCenterRequest
 from .set_users_for_cost_center_request import SetUsersForCostCenterRequest
@@ -41,13 +39,11 @@ class CostCenters:
         return response
 
     # List all cost centers.
-    # def all(self) -> CostCentersType:
-    def all(self):
+    def all(self) -> CostCentersType:
         return self.execute("get", "/".join(["cost_centers"]), "CostCentersType")
 
     # Get cost center detail.
-    # def get(self, id: str) -> CostCenterDetail:
-    def get(self, id: str):
+    def get(self, id: str) -> CostCenterDetail:
         return self.execute("get", "/".join(["cost_centers", id]), "CostCenterDetail")
 
     # Update the cost center endpoint.

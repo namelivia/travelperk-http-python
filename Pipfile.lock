@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "2142628daaab0d485f9bab0b86b4c2c28a4ba35c51a565873e4902df5b72ea72"
+            "sha256": "db06061bfe8af57b6fd47024e9c1dd4420324144d5deadcd41612fb7bfb8f780"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -58,6 +58,11 @@
             ],
             "index": "pypi",
             "version": "==1.3.0"
+        },
+        "travelperk-python-api-types": {
+            "editable": true,
+            "git": "https://github.com/namelivia/travelperk-python-api-types.git",
+            "ref": "5052b2b342f82c45afaa5bee26b782602853172f"
         },
         "urllib3": {
             "hashes": [
