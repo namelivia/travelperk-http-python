@@ -1,0 +1,2 @@
+class MissingCodeException(Exception):
+    pass
