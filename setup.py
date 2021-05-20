@@ -1,4 +1,4 @@
-from setuptools import setup, find_packages
+from setuptools import setup
 import pathlib
 
 here = pathlib.Path(__file__).parent.resolve()
@@ -22,8 +22,6 @@ setup(
         "Programming Language :: Python :: 3.9",
     ],
     keywords="travelperk, api",
-    package_dir={"": "src"},
-    packages=find_packages(where="src"),
     python_requires=">=3.8, <4",
     install_requires=["travelperk-python-api-types"],
     project_urls={

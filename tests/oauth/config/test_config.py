@@ -1,4 +1,4 @@
-from oauth.config.config import Config
+from travelperk_http_python.oauth.config.config import Config
 
 
 class TestConfig:

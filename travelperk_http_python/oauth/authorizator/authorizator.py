@@ -1,8 +1,8 @@
 from urllib.parse import urlencode
 from typing import List
 from .scopes import Scopes
-from oauth.config.config import Config
-from oauth.constants.constants import AUTHORIZE_URL
+from travelperk_http_python.oauth.config.config import Config
+from travelperk_http_python.oauth.constants.constants import AUTHORIZE_URL
 
 
 class Authorizator:

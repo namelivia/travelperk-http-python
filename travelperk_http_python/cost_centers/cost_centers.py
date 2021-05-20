@@ -1,7 +1,11 @@
 from typing import List, TYPE_CHECKING
 
-from cost_centers.cost_centers.cost_centers import CostCenters as CostCentersType
-from cost_centers.cost_centers.cost_center_detail import CostCenterDetail
+from travelperk_python_api_types.cost_centers.cost_centers.cost_centers import (
+    CostCenters as CostCentersType,
+)
+from travelperk_python_api_types.cost_centers.cost_centers.cost_center_detail import (
+    CostCenterDetail,
+)
 from .update_cost_center_request import UpdateCostCenterRequest
 from .bulk_update_cost_center_request import BulkUpdateCostCenterRequest
 from .set_users_for_cost_center_request import SetUsersForCostCenterRequest

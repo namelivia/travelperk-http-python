@@ -1,5 +1,5 @@
 from typing import TYPE_CHECKING
-from cost_centers.cost_centers import CostCenters
+from travelperk_http_python.cost_centers.cost_centers import CostCenters
 
 if TYPE_CHECKING:
     from api.travelperk import TravelPerk

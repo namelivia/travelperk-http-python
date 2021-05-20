@@ -1,7 +1,7 @@
 from mock import Mock
-from api.cost_centers_api import CostCentersAPI
-from api.travelperk import TravelPerk
-from cost_centers.cost_centers import CostCenters
+from travelperk_http_python.api.cost_centers_api import CostCentersAPI
+from travelperk_http_python.api.travelperk import TravelPerk
+from travelperk_http_python.cost_centers.cost_centers import CostCenters
 
 
 class TestCostCenters:

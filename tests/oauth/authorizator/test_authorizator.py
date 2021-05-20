@@ -1,7 +1,7 @@
 import pytest
 from mock import Mock
-from oauth.authorizator.authorizator import Authorizator
-from oauth.config.config import Config
+from travelperk_http_python.oauth.authorizator.authorizator import Authorizator
+from travelperk_http_python.oauth.config.config import Config
 
 
 class TestAuthorizator:
