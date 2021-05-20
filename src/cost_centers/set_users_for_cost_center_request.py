@@ -2,7 +2,7 @@ from typing import List, TYPE_CHECKING
 from .set_users_for_cost_center_input_params import SetUsersForCostCenterInputParams
 
 if TYPE_CHECKING:
-    from src.api.travelperk import TravelPerk
+    from api.travelperk import TravelPerk
 
 
 class SetUsersForCostCenterRequest:

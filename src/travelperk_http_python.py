@@ -1,6 +1,6 @@
-from src.api.travelperk import TravelPerk
+from api.travelperk import TravelPerk
 
-# from src.client.client import Client
+# from client.client import Client
 
 
 def build(api_key: str, is_sandbox: bool):

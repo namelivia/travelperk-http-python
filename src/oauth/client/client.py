@@ -1,5 +1,5 @@
-from src.oauth.authorizator.authorizator import Authorizator
-from src.oauth.missing_code_exception import MissingCodeException
+from oauth.authorizator.authorizator import Authorizator
+from oauth.missing_code_exception import MissingCodeException
 
 
 class Client:

@@ -2,7 +2,7 @@ from typing import List, TYPE_CHECKING
 from .bulk_update_cost_center_input_params import BulkUpdateCostCenterInputParams
 
 if TYPE_CHECKING:
-    from src.api.travelperk import TravelPerk
+    from api.travelperk import TravelPerk
 
 
 class BulkUpdateCostCenterRequest:

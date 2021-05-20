@@ -1,8 +1,8 @@
 from typing import TYPE_CHECKING
-from src.cost_centers.cost_centers import CostCenters
+from cost_centers.cost_centers import CostCenters
 
 if TYPE_CHECKING:
-    from src.api.travelperk import TravelPerk
+    from api.travelperk import TravelPerk
 
 
 class CostCentersAPI:

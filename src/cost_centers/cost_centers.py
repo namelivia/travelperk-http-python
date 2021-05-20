@@ -7,7 +7,7 @@ from .bulk_update_cost_center_request import BulkUpdateCostCenterRequest
 from .set_users_for_cost_center_request import SetUsersForCostCenterRequest
 
 if TYPE_CHECKING:
-    from src.api.travelperk import TravelPerk
+    from api.travelperk import TravelPerk
 
 
 class CostCenters:

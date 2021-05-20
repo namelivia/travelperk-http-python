@@ -7,7 +7,7 @@ from .users import Users
 from .trips import Trips
 from .cost_centers_api import CostCentersAPI
 
-# from src.oauth.client.client import Client
+# from oauth.client.client import Client
 
 
 class TravelPerk:

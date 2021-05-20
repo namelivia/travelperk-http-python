@@ -1,8 +1,8 @@
 from urllib.parse import urlencode
 from typing import List
 from .scopes import Scopes
-from src.oauth.config.config import Config
-from src.oauth.constants.constants import AUTHORIZE_URL
+from oauth.config.config import Config
+from oauth.constants.constants import AUTHORIZE_URL
 
 
 class Authorizator:
