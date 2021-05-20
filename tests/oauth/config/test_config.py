@@ -1,4 +1,4 @@
-from src.oauth.config.config import Config
+from oauth.config.config import Config
 
 
 class TestConfig:

@@ -1,7 +1,7 @@
 import pytest
 from mock import Mock
-from src.oauth.authorizator.authorizator import Authorizator
-from src.oauth.config.config import Config
+from oauth.authorizator.authorizator import Authorizator
+from oauth.config.config import Config
 
 
 class TestAuthorizator:

@@ -1,11 +1,11 @@
-from src.api.travelperk import TravelPerk
-from src.api.expenses import Expenses
-from src.api.scim import SCIM
-from src.api.webhooks import Webhooks
-from src.api.travelsafe import TravelSafe
-from src.api.users import Users
-from src.api.trips import Trips
-from src.api.cost_centers_api import CostCentersAPI
+from api.travelperk import TravelPerk
+from api.expenses import Expenses
+from api.scim import SCIM
+from api.webhooks import Webhooks
+from api.travelsafe import TravelSafe
+from api.users import Users
+from api.trips import Trips
+from api.cost_centers_api import CostCentersAPI
 
 
 class TestTravelPerk:
