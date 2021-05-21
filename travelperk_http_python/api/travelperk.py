@@ -8,14 +8,14 @@ from .trips import Trips
 from .cost_centers_api import CostCentersAPI
 
 # from oauth.client.client import Client
+from travelperk_http_python.client.client import Client
 
 
 class TravelPerk:
     BASE_URL = "https://api.travelperk.com/"
     SANDBOX_BASE_URL = "https://sandbox.travelperk.com/"
 
-    # def __init__(self, client: Client, is_sandbox: bool):
-    def __init__(self, is_sandbox: bool):
+    def __init__(self, client: Client, is_sandbox: bool):
         """
         $this->expenses = new Expenses($this, $mapper);
         $this->scim = new SCIM($this, $mapper);
@@ -25,7 +25,7 @@ class TravelPerk:
         $this->trips = new TripsAPI($this, $mapper);
         $this->costCenters = new CostCentersAPI($this, $mapper);
         """
-        # self.client = client
+        self.client = client
         self._expenses = Expenses()
         self._scim = SCIM()
         self._webhooks = Webhooks()
@@ -39,10 +39,8 @@ class TravelPerk:
         # return self.client.get_auth_uri(target_link_uri)
         return target_link_uri
 
-    def get(self, url: str) -> str:
-        # return self.client.get(
-        return self.base_url + url
-        # ).get_body().get_contents()
+    def get(self, url: str) -> dict:
+        return self.client.get(self.base_url + url)
 
     def post(self, url: str, params: List[str]) -> str:
         # return self.client.post(

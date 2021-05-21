@@ -1,7 +1,9 @@
+import requests
+
+
 class Client:
     def __init__(self, api_key: str):
-        # TODO: Send  the following headers
-        {
+        self.headers = {
             "Api-Version": "1",
             "Authorization": "ApiKey " + api_key,
         }
@@ -15,3 +17,6 @@ class Client:
         raise NotImplementedError(
             "No authorization URI for simple api key authentication"
         )
+
+    def get(self, uri: str) -> dict:
+        return requests.get(uri, headers=self.headers).json()
