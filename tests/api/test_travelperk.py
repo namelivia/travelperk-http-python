@@ -1,3 +1,4 @@
+from mock import Mock
 from travelperk_http_python.api.travelperk import TravelPerk
 from travelperk_http_python.api.expenses import Expenses
 from travelperk_http_python.api.scim import SCIM
@@ -6,16 +7,20 @@ from travelperk_http_python.api.travelsafe import TravelSafe
 from travelperk_http_python.api.users import Users
 from travelperk_http_python.api.trips import Trips
 from travelperk_http_python.api.cost_centers_api import CostCentersAPI
+from travelperk_http_python.client.client import Client
 
 
 class TestTravelPerk:
     def setup(self):
-        self.travelperk = TravelPerk(False)
+        self.client = Mock(spec=Client)
+        self.travelperk = TravelPerk(self.client, False)
 
     def test_making_a_get_call(self):
-        assert (
-            self.travelperk.get("sampleurl") == "https://api.travelperk.com/sampleurl"
-        )
+        response = {"data": "test_data"}
+        self.client.get.return_value = response
+        result = self.travelperk.get("sampleurl")
+        self.client.get.assert_called_once_with("https://api.travelperk.com/sampleurl")
+        assert result == response
 
     def test_making_a_post_call(self):
         assert (
@@ -63,8 +68,11 @@ class TestTravelPerk:
         assert type(self.travelperk.cost_centers()) is CostCentersAPI
 
     def test_querying_the_sandbox_environment(self):
-        travelperk = TravelPerk(True)
-        assert travelperk.get("sampleurl") == "https://sandbox.travelperk.com/sampleurl"
+        travelperk = TravelPerk(self.client, True)
+        travelperk.get("sampleurl")
+        self.client.get.assert_called_once_with(
+            "https://sandbox.travelperk.com/sampleurl"
+        )
 
     def test_getting_auth_uri(self):
         assert self.travelperk.get_auth_uri("target/link/uri") == "target/link/uri"

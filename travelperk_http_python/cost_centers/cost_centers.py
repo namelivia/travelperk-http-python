@@ -15,31 +15,16 @@ if TYPE_CHECKING:
 
 
 class CostCenters:
-    def __init__(self, travelperk: "TravelPerk"):  # , JsonMapper $mapper)
+    def __init__(self, travelperk: "TravelPerk"):
         self.travelperk = travelperk
-        # $this->mapper = $mapper;
 
     # TODO: This is temporary
     def execute(self, method: str, url: str, _class: str = None, params: List = None):
-        # TODO: This is for doing the type mapping
-        # I'll see how do I sort this out
-        """
-        # TODO: The return value will be an instance of the providen class
-        $result = new $class();
-        """
         if params is None:
             response = getattr(self.travelperk, method)(url)
         else:
             response = getattr(self.travelperk, method)(url, params)
-        """
-        #TODO: And here the mapping from the response to the object is done
-        $this->mapper->mapObject(
-            json_decode($response),
-            $result
-        );
-        """
 
-        # return result
         return response
 
     # List all cost centers.
@@ -48,7 +33,7 @@ class CostCenters:
 
     # Get cost center detail.
     def get(self, id: str) -> CostCenterDetail:
-        return self.execute("get", "/".join(["cost_centers", id]), "CostCenterDetail")
+        return CostCenterDetail(**self.execute("get", "/".join(["cost_centers", id])))
 
     # Update the cost center endpoint.
     def modify(self, id: str) -> UpdateCostCenterRequest:
