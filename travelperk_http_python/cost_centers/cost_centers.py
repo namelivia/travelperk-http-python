@@ -20,7 +20,7 @@ class CostCenters:
         # $this->mapper = $mapper;
 
     # TODO: This is temporary
-    def execute(self, method: str, url: str, _class: str, params: List = None):
+    def execute(self, method: str, url: str, _class: str = None, params: List = None):
         # TODO: This is for doing the type mapping
         # I'll see how do I sort this out
         """
@@ -44,7 +44,7 @@ class CostCenters:
 
     # List all cost centers.
     def all(self) -> CostCentersType:
-        return self.execute("get", "/".join(["cost_centers"]), "CostCentersType")
+        return CostCentersType(**self.execute("get", "/".join(["cost_centers"])))
 
     # Get cost center detail.
     def get(self, id: str) -> CostCenterDetail:
