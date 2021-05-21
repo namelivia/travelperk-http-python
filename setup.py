@@ -23,7 +23,7 @@ setup(
     ],
     keywords="travelperk, api",
     python_requires=">=3.8, <4",
-    install_requires=["travelperk-python-api-types"],
+    install_requires=["travelperk-python-api-types", "requests", "requests-oauthlib"],
     project_urls={
         "Bug Reports": "https://github.com/namelivia/travelperk-http-python/issues",
     },
