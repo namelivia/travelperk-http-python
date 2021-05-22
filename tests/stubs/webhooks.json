@@ -1,0 +1,18 @@
+{
+    "webhooks": [
+        {
+            "id": "b42820bb-24c9-48da-bded-487681e9c851",
+            "name": "invoice webhook",
+            "url": "https://mycompany/tkwebhook",
+            "secret": "some secret",
+            "status": "enabled",
+            "events": [
+                "invoice.issued",
+                "invoiceline.created"
+            ],
+            "successfully_sent": 2,
+            "failed_sent": 0,
+            "error_rate": 0.0
+        }
+    ]
+}

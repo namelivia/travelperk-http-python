@@ -1,0 +1,93 @@
+{
+    "serial_number": "INV-01-987654",
+    "profile_id": "edb6322b-8e11-48e9-8d6f-6402e445e50d",
+    "profile_name": "My Company Ltd",
+    "billing_information": {
+        "legal_name": "My Company Ltd",
+        "vat_number": "GB123456789",
+        "address_line_1": "199 Bishopsgate",
+        "address_line_2": "Spitalfields",
+        "city": "London",
+        "postal_code": "EC2M 3TY",
+        "country_name": "United Kingdom"
+    },
+    "mode": "reseller",
+    "status": "paid",
+    "issuing_date": "2020-03-31",
+    "billing_period": "monthly",
+    "from_date":  "2020-03-01",
+    "to_date": "2020-03-31",
+    "due_date": "2020-04-15",
+    "currency": "EUR",
+    "total": "13579.24",
+    "lines": {
+        "total": 1,
+        "data": [
+            {
+                "expense_date": "2020-02-13",
+                "description": "FLIGHT for Trip ID 1687664",
+                "quantity": 1,
+                "unit_price": "20.00000000",
+                "non_taxable_unit_price": "0E-8",
+                "tax_percentage": "0E-8",
+                "tax_amount": "0E-8",
+                "tax_regime": "STAR",
+                "total_amount": "20.00000000",
+                "metadata": {
+                    "trip_id": 1687664,
+                    "trip_name": "Meeting with German company GmbH",
+                    "service": "flight",
+                    "travelers": [
+                        { "name": "John Doe", "email": "john.doe@mycompany.com", "external_id": "ASD123"
+                        }
+                    ],
+                    "start_date": "2020-03-27",
+                    "end_date": "2020-04-05",
+                    "cost_center": "DACH Accounts",
+                    "labels": [ "Sales trips", "Special"],
+                    "vendor": {"code": "LH", "name": "Lufthansa"},
+                    "out_of_policy": false,
+                    "approvers": [
+                        { "name": "Jake Bolt", "email": "jake.bolt@mycompany.com", "external_id": "ASD124"
+                        }
+                    ],
+                    "booker": { "name": "Marien Lint", "email": "marien.lint@mycompany.com", "external_id": "ASD124"
+                    }
+                },
+                "invoice_serial_number": "INV-01-190111",
+                "profile_id": "09d649d1-35fa-4d9f-b688-046d5790afd2",
+                "profile_name": "My Company Ltd",
+                "invoice_mode": "reseller",
+                "invoice_status": "paid",
+                "issuing_date": "2020-02-13",
+                "due_date": "2020-02-13",
+                "currency": "EUR"
+            }
+        ],
+        "next": "/invoices/lines?serial_number=INV-01-987654&offset=10"
+    },
+    "taxes_summary": [
+        {
+            "tax_regime": "STAR",
+            "subtotal": "6543.21",
+            "tax_percentage": "0.00",
+            "tax_amount": "0.00",
+            "total": "6543.21"
+        },
+        {
+            "tax_regime": "G-VAT-R",
+            "subtotal": "5912.63",
+            "tax_percentage": "19.00",
+            "tax_amount": "1123.40",
+            "total": "7036.03"
+        }
+    ],
+    "reference": "My Company Ltd - SEPA - Monthly 2020-03",
+    "travelperk_bank_account": {
+        "bank_name": "La Caixa",
+        "account_number": "ES01 2345 6789 1098 7654 3210",
+        "bic": "CAIX ES BB XXX",
+        "reference": "INV-01-987654"
+    },
+    "pdf": "https://api.travelperk.com/invoices/INV-01-987654/pdf"
+}

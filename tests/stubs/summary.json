@@ -1,0 +1,34 @@
+{
+  "summary": "While traveling in Spain you will be required to follow the guidelines introduced by the local government. These regulations are based on risk levels and aimed at improving your safety.",
+  "details": "",
+  "risk_level": {
+    "id": "high",
+    "name": "High",
+    "details": "Covid cases are multiplying"
+  },
+  "location": {
+    "name": "Spain",
+    "type": "country",
+    "country_code": "ES"
+  },
+  "updated_at": "2020-10-19T10:08:53.777Z",
+  "guidelines": [
+    {
+      "category": {
+        "id": "use_of_mask",
+        "name": "Use of masks"
+      },
+      "sub_category": {
+        "id": "required",
+        "name": "Required"
+      },
+      "summary": "Use of masks is required",
+      "details": "Use of masks in all the public areas is required, including open spaces. You might face fines up to €3000 if stopped by the police without mask.",
+      "severity": "1/3"
+    }
+  ],
+  "info_source": {
+    "name": "Spain Travel Health",
+    "url": "https://www.spth.gob.es/"
+  }
+}

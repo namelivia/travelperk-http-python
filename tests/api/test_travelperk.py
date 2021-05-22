@@ -35,10 +35,13 @@ class TestTravelPerk:
         )
 
     def test_making_a_patch_call(self):
-        assert (
-            self.travelperk.patch("sampleurl", [])
-            == "https://api.travelperk.com/sampleurl"
+        response = {"data": "test_data"}
+        self.client.patch.return_value = response
+        result = self.travelperk.patch("sampleurl", {"data": "test"})
+        self.client.patch.assert_called_once_with(
+            "https://api.travelperk.com/sampleurl", {"data": "test"}
         )
+        assert result == response
 
     def test_making_a_delete_call(self):
         assert (

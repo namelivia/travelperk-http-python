@@ -1,0 +1,11 @@
+{
+  "offset": 0,
+  "limit": 10,
+  "cost_centers": [
+    {
+      "id": "2",
+      "name": "Test Cost Center 2",
+      "count_users": 0
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+[
+    {
+        "name": "invoice.issued",
+        "topic": "invoices"
+    },
+    {
+        "name": "invoiceline.created",
+        "topic": "invoices"
+    }
+]

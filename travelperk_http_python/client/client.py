@@ -20,3 +20,6 @@ class Client:
 
     def get(self, uri: str) -> dict:
         return requests.get(uri, headers=self.headers).json()
+
+    def patch(self, uri: str, data: dict) -> dict:
+        return requests.patch(uri, data=data, headers=self.headers).json()

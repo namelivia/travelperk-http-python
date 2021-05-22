@@ -11,9 +11,9 @@ class BulkUpdateCostCenterRequest:
         self.travelperk = travelperk
 
     def save(self) -> dict:
-        # TODO: translate json_decode
-        return json_decode(
-            self.travelperk.patch("/".join["cost_centers", "bulk_update"]),
+        # TODO: Typing this return type
+        return self.travelperk.patch(
+            "/".join(["cost_centers", "bulk_update"]),
             self.params.to_dict(),
         )
 

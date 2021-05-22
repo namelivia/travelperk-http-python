@@ -12,10 +12,9 @@ class UpdateCostCenterRequest:
         self.travelperk = travelperk
 
     def save(self) -> dict:
-        return json_decode(
-            self.travelperk.patch(
-                "/".join(["cost_centers", self.id]), self.params.to_dict()
-            )
+        # TODO: Typing this return type
+        return self.travelperk.patch(
+            "/".join(["cost_centers", self.id]), self.params.to_dict()
         )
 
     def set_name(self, name: str) -> "UpdateCostCenterRequest":

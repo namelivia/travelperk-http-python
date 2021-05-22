@@ -1,0 +1,45 @@
+{
+  "origin": {
+    "name": "France",
+    "type": "country",
+    "country_code": "FR"
+  },
+  "destination": {
+    "name": "Spain",
+    "type": "country",
+    "country_code": "ES"
+  },
+  "authorization_status": "restricted",
+  "summary": "Travelling from France to Spain is restricted",
+  "details": "Only business related travel is allowed.",
+  "start_date": "2020-10-16",
+  "end_date": "2020-10-18",
+  "updated_at": "2020-09-16T14:54:59.944581+00:00",
+  "requirements": [
+    {
+      "category": {
+        "id": "quarantine",
+        "name": "Quarantine"
+      },
+      "sub_category": {
+        "id": "quarantine_required",
+        "name": "Quarantine required"
+      },
+      "summary": "Travelers are required to quarantine for 14 days prior or after entering this destination",
+      "details": "Travelers arriving into Spain are required to go into quarantine",
+      "start_date": "2020-10-02",
+      "end_date": "2020-10-18",
+      "documents": [
+        {
+          "name": "FCS form",
+          "document_url": "https://www.spth.gob.es/create",
+          "download_url": "https://www.spth.gob.es/download.pdf"
+        }
+      ]
+    }
+  ],
+  "info_source": {
+    "name": "Spain Travel Health",
+    "url": "https://www.spth.gob.es/"
+  }
+}

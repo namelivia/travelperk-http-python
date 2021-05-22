@@ -47,10 +47,8 @@ class TravelPerk:
         return self.base_url + url
         # ).get_body().get_contents()
 
-    def patch(self, url: str, params: List[str]) -> str:
-        # return self.client.patch(
-        return self.base_url + url
-        # ).get_body().get_contents()
+    def patch(self, url: str, params: dict) -> dict:
+        return self.client.patch(self.base_url + url, params)
 
     def put(self, url: str, params: List[str]) -> str:
         # return self.client.put(

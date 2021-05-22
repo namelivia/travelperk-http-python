@@ -1,0 +1,39 @@
+{
+"offset": 0,
+"limit": 10,
+"total": 2,
+"profiles": [
+   {
+	"id": "f2dd1aa3-5601-4725-a520-bd59885bbb16",
+	"name": "My Company Ltd",
+	"payment_method_type": "automatic",
+	"billing_period": "instant",
+	"currency": "GBP",
+	"billing_information": {
+		"legal_name": "My Company Ltd",
+		"vat_number": "GB123456789",
+		"address_line_1": "199 Bishopsgate",
+		"address_line_2": "Spitalfields",
+		"city": "London",
+		"postal_code": "EC2M 3TY",
+		"country_name": "United Kingdom"
+		}
+	},
+	{
+	"id": "8fa66535-5a9a-4a6f-90d8-2986621a706a",
+	"name": "My Spanish Company SL",
+	"payment_method_type": "manual",
+	"billing_period": "monthly",
+	"currency": "EUR",
+	"billing_information": {
+		"legal_name": "My Spanish Company SL",
+		"vat_number": "ES123456789",
+		"address_line_1": "Passeig de Gracia 345",
+		"address_line_2": "Planta 14",
+		"city": "Barcelona",
+		"postal_code": "080123",
+		"country_name": "Spain"
+		}
+	}
+	]
+}

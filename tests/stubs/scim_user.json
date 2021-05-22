@@ -1,0 +1,55 @@
+{
+  "schemas": [
+    "urn:ietf:params:scim:schemas:core:2.0:User",
+    "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
+    "urn:ietf:params:scim:schemas:extension:travelperk:2.0:User"
+  ],
+  "name": {
+    "givenName": "Marlen",
+    "familyName": "Col",
+    "middleName": "",
+    "honorificPrefix": ""
+  },
+  "locale": "en",
+  "preferredLanguage": "en",
+  "title": "Manager",
+  "externalId": "123455667",
+  "id": "29",
+  "groups": [],
+  "active": true,
+  "userName": "marlen.col@mycompany.com",
+  "phoneNumbers": [
+    {
+      "value": "+34 1234567",
+      "type": "work"
+    }
+  ],
+  "meta": {
+    "resourceType": "User",
+    "created": "2020-04-01T22:24:44.137082+00:00",
+    "lastModified": "2020-04-01T22:24:44.137082+00:00",
+    "location": "http://app.travelperk.com/api/v2/scim/Users/29"
+  },
+  "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
+    "costCenter": "Marketing",
+    "manager": {
+      "value": "123",
+      "$ref": "https://app.travelperk.com/api/v2/scim/Users/123/",
+      "displayName": "Jack Jackson"
+    }
+  },
+  "urn:ietf:params:scim:schemas:extension:travelperk:2.0:User": {
+    "gender": "M",
+    "dateOfBirth": "1980-02-02",
+    "travelPolicy": "Marketing travel policy",
+    "invoiceProfiles": [
+      {
+        "value": "My Company Ltd"
+      }
+    ],
+    "emergencyContact": {
+      "name": "Jane Goodie",
+      "phone": "+34 9874637"
+    }
+  }
+}

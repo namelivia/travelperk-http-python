@@ -1,0 +1,25 @@
+{
+  "airline": {
+    "name": "Lufthansa",
+    "iata_code": "LH"
+  },
+  "safety_measures": [
+    {
+      "category": {
+        "id": "boarding_or_dissembarking_measurements",
+        "name": "New boarding and disembarking measures"
+      },
+      "sub_category": {
+        "id": "true",
+        "name": "true"
+      },
+      "details": "Travelers should wait until their boarding group is called before using the automatic gates to board the aircraft. Disinfectant wipes will also be provided to passengers for the purpose of cleaning the surfaces in and around their seats.",
+      "summary": "To help passengers can keep a safe distance from one another."
+    }
+  ],
+  "info_source": {
+    "name": "Lufthansa' info source",
+    "url": "https://www.lufthansa.com/de/en/protection-measures"
+  },
+  "updated_at": "2020-10-19T12:14:42.041298+00:00"
+}

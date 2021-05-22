@@ -1,0 +1,16 @@
+{
+    "id": "1",
+    "name": "iloveorange",
+    "archived": true,
+    "users": [
+        {
+            "first_name": "Name",
+            "last_name": "Lastname",
+            "email": "email@email.com",
+            "id": 1,
+            "phone": null,
+            "profile_picture": null
+        }
+    ],
+    "count_users": 1
+}
