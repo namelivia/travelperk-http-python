@@ -21,4 +21,5 @@ allow_prereleases = true
 [packages]
 requests-oauthlib = "*"
 requests = "*"
-travelperk-python-api-types = {editable = true, ref = "master", git = "https://github.com/namelivia/travelperk-python-api-types.git"}
+travelperk-python-api-types = {editable = true,ref = "master",git = "https://github.com/namelivia/travelperk-python-api-types.git"}
+pyhumps = "*"

@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "d9b4b30b4b729a6f6e49eefb881166958fb12dbe5275da65efd626dac8dd38fa"
+            "sha256": "3496d7b71d821d4d7defb41afa392578a0bff2cbac43bdf31ae40ed837e295ad"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -71,6 +71,14 @@
             ],
             "version": "==1.8.2"
         },
+        "pyhumps": {
+            "hashes": [
+                "sha256:042b4b6eec6c1f862f8310c0eebbae19293e9edab8cafb030ff78c890ef1aa34",
+                "sha256:367b1aadcaa64f8196a3cd14f56559a5602950aeb8486f49318e7394f5e18052"
+            ],
+            "index": "pypi",
+            "version": "==3.0.2"
+        },
         "requests": {
             "hashes": [
                 "sha256:27973dd4a904a4f13b263a19c866c13b92a39ed1c964655f025f3f8d3d75b804",
@@ -90,7 +98,7 @@
         "travelperk-python-api-types": {
             "editable": true,
             "git": "https://github.com/namelivia/travelperk-python-api-types.git",
-            "ref": "32a10c5f313238825f86a9692bd5a5442a07cfca"
+            "ref": "e7cc5bba2daaffc4d9528132fa7e86b35c47ced9"
         },
         "typing-extensions": {
             "hashes": [
