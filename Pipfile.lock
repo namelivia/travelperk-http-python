@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "ad3afa7761ccaacf48ff4e360fff77cf802a6a8d5e2073e80969ebf5e4aebb45"
+            "sha256": "d9b4b30b4b729a6f6e49eefb881166958fb12dbe5275da65efd626dac8dd38fa"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -90,7 +90,7 @@
         "travelperk-python-api-types": {
             "editable": true,
             "git": "https://github.com/namelivia/travelperk-python-api-types.git",
-            "ref": "160aa2925ba7cd2c879e42efeb27ab1eaef2b9a0"
+            "ref": "32a10c5f313238825f86a9692bd5a5442a07cfca"
         },
         "typing-extensions": {
             "hashes": [
@@ -241,6 +241,13 @@
             ],
             "version": "==3.0.12"
         },
+        "freezegun": {
+            "hashes": [
+                "sha256:177f9dd59861d871e27a484c3332f35a6e3f5d14626f2bf91be37891f18927f3",
+                "sha256:2ae695f7eb96c62529f03a038461afe3c692db3465e215355e1bb4b0ab408712"
+            ],
+            "version": "==1.1.0"
+        },
         "identify": {
             "hashes": [
                 "sha256:9c3ab58543c03bd794a1735e4552ef6dec49ec32053278130d525f0982447d47",
@@ -342,6 +349,21 @@
             ],
             "index": "pypi",
             "version": "==2.12.0"
+        },
+        "pytest-freezegun": {
+            "hashes": [
+                "sha256:19c82d5633751bf3ec92caa481fb5cffaac1787bd485f0df6436fd6242176949",
+                "sha256:5318a6bfb8ba4b709c8471c94d0033113877b3ee02da5bfcd917c1889cde99a7"
+            ],
+            "index": "pypi",
+            "version": "==0.4.2"
+        },
+        "python-dateutil": {
+            "hashes": [
+                "sha256:73ebfe9dbf22e832286dafa60473e4cd239f8592f699aa5adaf10050e6e1823c",
+                "sha256:75bb3f31ea686f1197762692a9ee6a7550b59fc6ca3a1f4b5d7e32fb98e2da2a"
+            ],
+            "version": "==2.8.1"
         },
         "pyyaml": {
             "hashes": [

@@ -6,9 +6,7 @@ if TYPE_CHECKING:
 
 
 class CostCentersAPI:
-    # def __init__(self, travelperk: TravelPerk, mapper: Mapper):
     def __init__(self, travelperk: "TravelPerk"):
-        # self.cost_centers = CostCenters(travelperk, mapper)
         self._cost_centers = CostCenters(travelperk)
 
     def cost_centers(self) -> CostCenters:

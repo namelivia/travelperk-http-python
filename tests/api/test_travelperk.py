@@ -1,6 +1,6 @@
 from mock import Mock
 from travelperk_http_python.api.travelperk import TravelPerk
-from travelperk_http_python.api.expenses import Expenses
+from travelperk_http_python.api.expenses_api import ExpensesAPI
 from travelperk_http_python.api.scim import SCIM
 from travelperk_http_python.api.webhooks import Webhooks
 from travelperk_http_python.api.travelsafe import TravelSafe
@@ -50,7 +50,7 @@ class TestTravelPerk:
         )
 
     def test_getting_an_expenses_instance(self):
-        assert type(self.travelperk.expenses()) is Expenses
+        assert type(self.travelperk.expenses()) is ExpensesAPI
 
     def test_getting_a_scim_instance(self):
         assert type(self.travelperk.scim()) is SCIM

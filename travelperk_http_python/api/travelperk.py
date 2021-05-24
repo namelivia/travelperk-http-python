@@ -1,5 +1,5 @@
 from typing import List
-from .expenses import Expenses
+from .expenses_api import ExpensesAPI
 from .scim import SCIM
 from .webhooks import Webhooks
 from .travelsafe import TravelSafe
@@ -17,16 +17,14 @@ class TravelPerk:
 
     def __init__(self, client: Client, is_sandbox: bool):
         """
-        $this->expenses = new Expenses($this, $mapper);
         $this->scim = new SCIM($this, $mapper);
         $this->webhooks = new WebhooksAPI($this, $mapper);
         $this->travelSafe = new TravelSafeAPI($this, $mapper);
         $this->users = new UsersAPI($this, $mapper);
         $this->trips = new TripsAPI($this, $mapper);
-        $this->costCenters = new CostCentersAPI($this, $mapper);
         """
         self.client = client
-        self._expenses = Expenses()
+        self._expenses = ExpensesAPI(self)
         self._scim = SCIM()
         self._webhooks = Webhooks()
         self._travelsafe = TravelSafe()
@@ -65,8 +63,7 @@ class TravelPerk:
         # return self
         return authorization_code
 
-    # def expenses(self) -> Expenses:
-    def expenses(self) -> None:
+    def expenses(self) -> ExpensesAPI:
         return self._expenses
 
     # def scim(self) -> SCIM:
