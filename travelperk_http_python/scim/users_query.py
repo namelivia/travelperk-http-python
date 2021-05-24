@@ -1,11 +1,14 @@
 import humps
-from travelperk_http_python.api.travelperk import TravelPerk
+from typing import TYPE_CHECKING
 from travelperk_http_python.scim.users_input_params import UsersInputParams
 from travelperk_python_api_types.scim.users.users import Users
 
+if TYPE_CHECKING:
+    from travelperk_http_python.api.travelperk import TravelPerk
+
 
 class UsersQuery:
-    def __init__(self, travelperk: TravelPerk):
+    def __init__(self, travelperk: "TravelPerk"):
         self.params = UsersInputParams()
         self.travelperk = travelperk
 

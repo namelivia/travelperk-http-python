@@ -1,19 +1,21 @@
 # import json
 import humps
 import datetime
-from typing import List
+from typing import List, TYPE_CHECKING
 from travelperk_http_python.scim.name_input_params import NameInputParams
-from travelperk_http_python.api.travelperk import TravelPerk
 from travelperk_http_python.scim.replace_user_input_params import ReplaceUserInputParams
 from travelperk_http_python.scim.emergency_contact import EmergencyContact
 from travelperk_python_api_types.scim.users.user import User
+
+if TYPE_CHECKING:
+    from travelperk_http_python.api.travelperk import TravelPerk
 
 
 class ModifyUserRequest:
     def __init__(
         self,
         id: int,
-        travelperk: TravelPerk,
+        travelperk: "TravelPerk",
         username: str,
         active: bool,
         name: NameInputParams,

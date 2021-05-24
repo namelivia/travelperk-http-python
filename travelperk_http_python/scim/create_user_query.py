@@ -1,16 +1,22 @@
 import humps
 import datetime
-from typing import List
-from travelperk_http_python.api.travelperk import TravelPerk
+from typing import List, TYPE_CHECKING
 from travelperk_http_python.scim.name_input_params import NameInputParams
 from travelperk_http_python.scim.create_user_input_params import CreateUserInputParams
 from travelperk_python_api_types.scim.users.user import User
 from travelperk_http_python.scim.emergency_contact import EmergencyContact
 
+if TYPE_CHECKING:
+    from travelperk_http_python.api.travelperk import TravelPerk
+
 
 class CreateUserQuery:
     def __init__(
-        self, travelperk: TravelPerk, username: str, active: bool, name: NameInputParams
+        self,
+        travelperk: "TravelPerk",
+        username: str,
+        active: bool,
+        name: NameInputParams,
     ):
         self.travelperk = travelperk
         self.params = CreateUserInputParams(username, active, name)

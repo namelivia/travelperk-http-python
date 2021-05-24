@@ -1,7 +1,7 @@
 from mock import Mock
 from travelperk_http_python.api.travelperk import TravelPerk
 from travelperk_http_python.api.expenses_api import ExpensesAPI
-from travelperk_http_python.api.scim import SCIM
+from travelperk_http_python.api.scim_api import SCIMAPI
 from travelperk_http_python.api.webhooks import Webhooks
 from travelperk_http_python.api.travelsafe import TravelSafe
 from travelperk_http_python.api.users import Users
@@ -53,7 +53,7 @@ class TestTravelPerk:
         assert type(self.travelperk.expenses()) is ExpensesAPI
 
     def test_getting_a_scim_instance(self):
-        assert type(self.travelperk.scim()) is SCIM
+        assert type(self.travelperk.scim()) is SCIMAPI
 
     def test_getting_a_webhooks_instance(self):
         assert type(self.travelperk.webhooks()) is Webhooks

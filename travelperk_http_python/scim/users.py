@@ -1,6 +1,5 @@
+from typing import List, TYPE_CHECKING
 import humps
-from typing import List
-from travelperk_http_python.api.travelperk import TravelPerk
 from travelperk_http_python.scim.users_query import UsersQuery
 from travelperk_python_api_types.scim.users.user import User
 from travelperk_http_python.scim.create_user_query import CreateUserQuery
@@ -12,9 +11,12 @@ from travelperk_http_python.scim.modify_user_request import ModifyUserRequest
 from travelperk_http_python.scim.language import Language
 from travelperk_http_python.scim.gender import Gender
 
+if TYPE_CHECKING:
+    from api.travelperk import TravelPerk
+
 
 class Users:
-    def __init__(self, travelperk: TravelPerk):
+    def __init__(self, travelperk: "TravelPerk"):
         self.travelperk = travelperk
 
     # TODO: This is temporary
