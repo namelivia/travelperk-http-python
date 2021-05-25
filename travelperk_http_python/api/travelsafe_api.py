@@ -9,5 +9,5 @@ class TravelSafeAPI:
     def __init__(self, travelperk: "TravelPerk"):
         self._travelsafe = TravelSafe(travelperk)
 
-    def cost_centers(self) -> TravelSafe:
+    def travelsafe(self) -> TravelSafe:
         return self._travelsafe
