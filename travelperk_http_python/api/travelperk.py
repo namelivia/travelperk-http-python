@@ -2,7 +2,7 @@ from typing import List
 from .expenses_api import ExpensesAPI
 from .scim_api import SCIMAPI
 from .webhooks import Webhooks
-from .travelsafe import TravelSafe
+from .travelsafe_api import TravelSafeAPI
 from .users import Users
 from .trips import Trips
 from .cost_centers_api import CostCentersAPI
@@ -18,7 +18,6 @@ class TravelPerk:
     def __init__(self, client: Client, is_sandbox: bool):
         """
         $this->webhooks = new WebhooksAPI($this, $mapper);
-        $this->travelSafe = new TravelSafeAPI($this, $mapper);
         $this->users = new UsersAPI($this, $mapper);
         $this->trips = new TripsAPI($this, $mapper);
         """
@@ -26,7 +25,7 @@ class TravelPerk:
         self._expenses = ExpensesAPI(self)
         self._scim = SCIMAPI(self)
         self._webhooks = Webhooks()
-        self._travelsafe = TravelSafe()
+        self._travelsafe = TravelSafeAPI(self)
         self._users = Users()
         self._trips = Trips()
         self._cost_centers = CostCentersAPI(self)
@@ -72,8 +71,7 @@ class TravelPerk:
     def webhooks(self) -> None:
         return self._webhooks
 
-    # def travelsafe(self) -> TravelSafeAPI:
-    def travelsafe(self) -> None:
+    def travelsafe(self) -> TravelSafeAPI:
         return self._travelsafe
 
     # def users(self) -> UsersAPI:

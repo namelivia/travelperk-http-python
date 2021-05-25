@@ -3,7 +3,7 @@ from travelperk_http_python.api.travelperk import TravelPerk
 from travelperk_http_python.api.expenses_api import ExpensesAPI
 from travelperk_http_python.api.scim_api import SCIMAPI
 from travelperk_http_python.api.webhooks import Webhooks
-from travelperk_http_python.api.travelsafe import TravelSafe
+from travelperk_http_python.api.travelsafe_api import TravelSafeAPI
 from travelperk_http_python.api.users import Users
 from travelperk_http_python.api.trips import Trips
 from travelperk_http_python.api.cost_centers_api import CostCentersAPI
@@ -59,7 +59,7 @@ class TestTravelPerk:
         assert type(self.travelperk.webhooks()) is Webhooks
 
     def test_getting_a_travelsafe_instance(self):
-        assert type(self.travelperk.travelsafe()) is TravelSafe
+        assert type(self.travelperk.travelsafe()) is TravelSafeAPI
 
     def test_getting_a_users_instance(self):
         assert type(self.travelperk.users()) is Users
