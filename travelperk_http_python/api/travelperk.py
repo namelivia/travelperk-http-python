@@ -4,7 +4,7 @@ from .scim_api import SCIMAPI
 from .webhooks import Webhooks
 from .travelsafe_api import TravelSafeAPI
 from .users import Users
-from .trips import Trips
+from .trips_api import TripsAPI
 from .cost_centers_api import CostCentersAPI
 
 # from oauth.client.client import Client
@@ -19,7 +19,6 @@ class TravelPerk:
         """
         $this->webhooks = new WebhooksAPI($this, $mapper);
         $this->users = new UsersAPI($this, $mapper);
-        $this->trips = new TripsAPI($this, $mapper);
         """
         self.client = client
         self._expenses = ExpensesAPI(self)
@@ -27,7 +26,7 @@ class TravelPerk:
         self._webhooks = Webhooks()
         self._travelsafe = TravelSafeAPI(self)
         self._users = Users()
-        self._trips = Trips()
+        self._trips = TripsAPI(self)
         self._cost_centers = CostCentersAPI(self)
         self.base_url = self.SANDBOX_BASE_URL if is_sandbox else self.BASE_URL
 
@@ -78,8 +77,7 @@ class TravelPerk:
     def users(self) -> None:
         return self._users
 
-    # def trips(self) -> TripsAPI:
-    def trips(self) -> None:
+    def trips(self) -> TripsAPI:
         return self._trips
 
     def cost_centers(self) -> CostCentersAPI:

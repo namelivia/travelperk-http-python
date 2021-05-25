@@ -5,7 +5,7 @@ from travelperk_http_python.api.scim_api import SCIMAPI
 from travelperk_http_python.api.webhooks import Webhooks
 from travelperk_http_python.api.travelsafe_api import TravelSafeAPI
 from travelperk_http_python.api.users import Users
-from travelperk_http_python.api.trips import Trips
+from travelperk_http_python.api.trips_api import TripsAPI
 from travelperk_http_python.api.cost_centers_api import CostCentersAPI
 from travelperk_http_python.client.client import Client
 
@@ -65,7 +65,7 @@ class TestTravelPerk:
         assert type(self.travelperk.users()) is Users
 
     def test_getting_a_trips_instance(self):
-        assert type(self.travelperk.trips()) is Trips
+        assert type(self.travelperk.trips()) is TripsAPI
 
     def test_getting_a_cost_centers_instance(self):
         assert type(self.travelperk.cost_centers()) is CostCentersAPI
