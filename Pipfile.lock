@@ -98,7 +98,7 @@
         "travelperk-python-api-types": {
             "editable": true,
             "git": "https://github.com/namelivia/travelperk-python-api-types.git",
-            "ref": "cadf7128bd0d5f1f1174013af68db0859bcc327e"
+            "ref": "27d46adbb7be635a293c4df309d2c5447c9c2b1a"
         },
         "typing-extensions": {
             "hashes": [

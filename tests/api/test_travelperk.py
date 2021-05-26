@@ -2,9 +2,9 @@ from mock import Mock
 from travelperk_http_python.api.travelperk import TravelPerk
 from travelperk_http_python.api.expenses_api import ExpensesAPI
 from travelperk_http_python.api.scim_api import SCIMAPI
-from travelperk_http_python.api.webhooks import Webhooks
+from travelperk_http_python.api.webhooks_api import WebhooksAPI
 from travelperk_http_python.api.travelsafe_api import TravelSafeAPI
-from travelperk_http_python.api.users import Users
+from travelperk_http_python.api.users_api import UsersAPI
 from travelperk_http_python.api.trips_api import TripsAPI
 from travelperk_http_python.api.cost_centers_api import CostCentersAPI
 from travelperk_http_python.client.client import Client
@@ -56,13 +56,13 @@ class TestTravelPerk:
         assert type(self.travelperk.scim()) is SCIMAPI
 
     def test_getting_a_webhooks_instance(self):
-        assert type(self.travelperk.webhooks()) is Webhooks
+        assert type(self.travelperk.webhooks()) is WebhooksAPI
 
     def test_getting_a_travelsafe_instance(self):
         assert type(self.travelperk.travelsafe()) is TravelSafeAPI
 
     def test_getting_a_users_instance(self):
-        assert type(self.travelperk.users()) is Users
+        assert type(self.travelperk.users()) is UsersAPI
 
     def test_getting_a_trips_instance(self):
         assert type(self.travelperk.trips()) is TripsAPI

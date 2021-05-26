@@ -1,9 +1,9 @@
 from typing import List
 from .expenses_api import ExpensesAPI
 from .scim_api import SCIMAPI
-from .webhooks import Webhooks
+from .webhooks_api import WebhooksAPI
 from .travelsafe_api import TravelSafeAPI
-from .users import Users
+from .users_api import UsersAPI
 from .trips_api import TripsAPI
 from .cost_centers_api import CostCentersAPI
 
@@ -16,16 +16,13 @@ class TravelPerk:
     SANDBOX_BASE_URL = "https://sandbox.travelperk.com/"
 
     def __init__(self, client: Client, is_sandbox: bool):
-        """
-        $this->webhooks = new WebhooksAPI($this, $mapper);
-        $this->users = new UsersAPI($this, $mapper);
-        """
+        """"""
         self.client = client
         self._expenses = ExpensesAPI(self)
         self._scim = SCIMAPI(self)
-        self._webhooks = Webhooks()
+        self._webhooks = WebhooksAPI(self)
         self._travelsafe = TravelSafeAPI(self)
-        self._users = Users()
+        self._users = UsersAPI(self)
         self._trips = TripsAPI(self)
         self._cost_centers = CostCentersAPI(self)
         self.base_url = self.SANDBOX_BASE_URL if is_sandbox else self.BASE_URL
@@ -66,15 +63,13 @@ class TravelPerk:
     def scim(self) -> SCIMAPI:
         return self._scim
 
-    # def webhooks(self) -> WebhooksAPI:
-    def webhooks(self) -> None:
+    def webhooks(self) -> WebhooksAPI:
         return self._webhooks
 
     def travelsafe(self) -> TravelSafeAPI:
         return self._travelsafe
 
-    # def users(self) -> UsersAPI:
-    def users(self) -> None:
+    def users(self) -> UsersAPI:
         return self._users
 
     def trips(self) -> TripsAPI:

@@ -104,10 +104,10 @@ class ReplaceUserInputParams:
         ]
         return len(enterprise_data) > 0
 
-    def as_dict(self) -> dict:
+    def to_dict(self) -> dict:
         data = {
             "userName": self.user_name,
-            "name": self.name.as_dict(),
+            "name": self.name.to_dict(),
             "active": self.active,
             "preferredLanguage": self.language.value
             if self.language is not None
@@ -132,7 +132,7 @@ class ReplaceUserInputParams:
                 if self.date_of_birth is not None
                 else None,
                 "travelPolicy": self.travel_policy,
-                "emergencyContact": self.emergency_contact.as_dict()
+                "emergencyContact": self.emergency_contact.to_dict()
                 if self.emergency_contact is not None
                 else None,
                 "invoiceProfiles": self.invoice_profiles.as_list()

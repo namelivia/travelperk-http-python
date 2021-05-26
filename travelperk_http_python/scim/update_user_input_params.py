@@ -19,10 +19,10 @@ class UpdateUserInputParams:
         self.name = name
         return self
 
-    def as_dict(self) -> dict:
+    def to_dict(self) -> dict:
         data = {
             "userName": self.user_name,
-            "name": self.name.as_dict() if self.name is not None else None,
+            "name": self.name.to_dict() if self.name is not None else None,
             "active": self.active,
         }
         return {k: v for k, v in data.items() if v is not None}

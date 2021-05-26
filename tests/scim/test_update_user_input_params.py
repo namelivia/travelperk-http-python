@@ -9,7 +9,7 @@ class TestUpdateUserInputParam:
         assert {
             "userName": "New user name",
             "active": False,
-        } == input_params.as_dict()
+        } == input_params.to_dict()
 
     def test_setting_update_user_input_params_name(self):
         input_params = UpdateUserInputParams()
@@ -19,4 +19,4 @@ class TestUpdateUserInputParam:
                 "givenName": "given name",
                 "familyName": "family name",
             },
-        } == input_params.as_dict()
+        } == input_params.to_dict()

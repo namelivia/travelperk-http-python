@@ -18,7 +18,7 @@ class TestCreateUserInputParam:
                 "familyName": "family_name",
             },
             "active": True,
-        } == input_params.as_dict()
+        } == input_params.to_dict()
 
     def test_setting_create_user_input_params_with_optional_parameters(self):
         input_params = CreateUserInputParams(
@@ -77,4 +77,4 @@ class TestCreateUserInputParam:
                     "value": "123",
                 },
             },
-        } == input_params.as_dict()
+        } == input_params.to_dict()

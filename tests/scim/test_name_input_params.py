@@ -6,7 +6,7 @@ class TestNameInputParams:
         assert {
             "givenName": "Given Name",
             "familyName": "Family Name",
-        } == NameInputParams("Given Name", "Family Name").as_dict()
+        } == NameInputParams("Given Name", "Family Name").to_dict()
 
     def test_setting_all_fields(self):
         assert {
@@ -18,4 +18,4 @@ class TestNameInputParams:
             "Middle Name"
         ).set_honorific_prefix(
             "Honorific Prefix"
-        ).as_dict()
+        ).to_dict()

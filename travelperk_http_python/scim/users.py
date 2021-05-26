@@ -74,7 +74,7 @@ class Users:
         params = CreateUserInputParams(username, active, name)
         return User(
             **humps.decamelize(
-                self.execute("post", "/".join(["scim", "Users"]), params.as_dict())
+                self.execute("post", "/".join(["scim", "Users"]), params.to_dict())
             )
         )
 
@@ -87,7 +87,7 @@ class Users:
     def replace(self, id: int, params: ReplaceUserInputParams) -> User:
         return User(
             **humps.decamelize(
-                self.execute("put", "/".join(["scim", "Users", id]), params.as_dict())
+                self.execute("put", "/".join(["scim", "Users", id]), params.to_dict())
             )
         )
 

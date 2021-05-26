@@ -18,7 +18,7 @@ class TestReplaceUserInputParams:
                 "familyName": "family_name",
             },
             "active": True,
-        } == input_params.as_dict()
+        } == input_params.to_dict()
 
     def test_setting_replace_user_input_params_with_optional_parameters(self):
         input_params = ReplaceUserInputParams(
@@ -77,4 +77,4 @@ class TestReplaceUserInputParams:
                     "value": "123",
                 },
             },
-        } == input_params.as_dict()
+        } == input_params.to_dict()

@@ -48,7 +48,7 @@ class CreateUserQuery:
     def save(self) -> User:
         return User(
             **humps.decamelize(
-                self.execute("post", "/".join(["scim", "Users"]), self.params.as_dict())
+                self.execute("post", "/".join(["scim", "Users"]), self.params.to_dict())
             )
         )
 

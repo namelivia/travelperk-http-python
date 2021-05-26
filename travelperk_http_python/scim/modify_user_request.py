@@ -53,7 +53,7 @@ class ModifyUserRequest:
                 self.execute(
                     "put",
                     "/".join(["scim", "Users", str(self.id)]),
-                    self.params.as_dict(),
+                    self.params.to_dict(),
                 )
             )
         )

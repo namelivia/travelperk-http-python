@@ -13,7 +13,7 @@ class NameInputParams:
         self.middle_name = middle_name
         return self
 
-    def as_dict(self) -> dict:
+    def to_dict(self) -> dict:
         data = {
             "givenName": self.given_name,
             "familyName": self.family_name,
