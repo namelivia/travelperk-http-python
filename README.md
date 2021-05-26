@@ -1,6 +1,4 @@
-# travelperk-http-python [![tag](https://img.shields.io/github/tag/namelivia/travelperk-http-python.svg)](https://github.com/namelivia/travelperk-http-python/releases) [![Build Status](https://travis-ci.com/namelivia/travelperk-http-python.svg?branch=master)](https://travis-ci.com/namelivia/travelperk-http-python) [![codecov](https://codecov.io/gh/namelivia/travelperk-http-python/branch/master/graph/badge.svg)](https://codecov.io/gh/namelivia/travelperk-http-python)
-
-## This is WIP and by no means usable
+# travelperk-http-python [![tag](https://img.shields.io/github/tag/namelivia/travelperk-http-python.svg)](https://github.com/namelivia/travelperk-http-python/releases) [![build](https://github.com/namelivia/travelperk-http-python/actions/workflows/build.yml/badge.svg)](https://github.com/namelivia/travelperk-http-python/actions/workflows/build.yml) [![codecov](https://codecov.io/gh/namelivia/travelperk-http-python/branch/master/graph/badge.svg)](https://codecov.io/gh/namelivia/travelperk-http-python) [![Lint](https://github.com/namelivia/travelperk-http-python/actions/workflows/black.yml/badge.svg)](https://github.com/namelivia/travelperk-http-python/actions/workflows/black.yml)
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/1571416/118358121-b78de000-b57d-11eb-9987-f750ed530d83.png" alt="TravelPerk Python SDK" />
