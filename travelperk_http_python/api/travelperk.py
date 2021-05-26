@@ -16,7 +16,6 @@ class TravelPerk:
     SANDBOX_BASE_URL = "https://sandbox.travelperk.com/"
 
     def __init__(self, client: Client, is_sandbox: bool):
-        """"""
         self.client = client
         self._expenses = ExpensesAPI(self)
         self._scim = SCIMAPI(self)
