@@ -10,7 +10,11 @@ This is an unofficial package for acessing the [TravelPerk official Web API](htt
 
 ## Installation
 
-WIP
+This package is hosted on [PyPi](https://pypi.org/project/travelperk-http-python), you can install it using any python package manager. 
+
+```bash
+$ pip install travelperk-http-python
+```
 
 ## Getting started
 
@@ -26,7 +30,11 @@ At TravelPerk there are [two ways to authenticate](https://developers.travelperk
 
 If you have an [API Key](https://developers.travelperk.com/reference#api-keys-1) for authenticating you need to call the Service Provider's `build` method passing your api key, and a boolean indicating if you will be using the [sandbox environment](https://developers.travelperk.com/docs/postman-collection#step-2---configure-the-postman-environment) or not like this:
 
-WIP
+```python
+from travelperk_http_python.builder.builder import build
+is_sandbox = false
+travelperk = build("YOUR_API_KEY", is_sandbox)
+```
 
 #### For OAuth Authentication
 

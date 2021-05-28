@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 import pathlib
 
 here = pathlib.Path(__file__).parent.resolve()
@@ -29,6 +29,7 @@ setup(
         "requests-oauthlib",
         "pyhumps",
     ],
+    packages=find_packages(exclude=["*.tests", "*.tests.*", "tests.*", "tests"]),
     project_urls={
         "Bug Reports": "https://github.com/namelivia/travelperk-http-python/issues",
     },
