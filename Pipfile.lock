@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "3496d7b71d821d4d7defb41afa392578a0bff2cbac43bdf31ae40ed837e295ad"
+            "sha256": "607a7809827009b369904438203a0aa4f7b501c749744e2e1e0825bea55fb985"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -96,9 +96,12 @@
             "version": "==1.3.0"
         },
         "travelperk-python-api-types": {
-            "editable": true,
-            "git": "https://github.com/namelivia/travelperk-python-api-types.git",
-            "ref": "27d46adbb7be635a293c4df309d2c5447c9c2b1a"
+            "hashes": [
+                "sha256:050dec64fefd8588d7a766679d5a351081e742734f446cfa959ff89126367d5c",
+                "sha256:406dd513d09e0345baa8b09d9ab75cdccb70da6a8c0e6952dc78fd74220365c8"
+            ],
+            "index": "pypi",
+            "version": "==1.0.0"
         },
         "typing-extensions": {
             "hashes": [
@@ -110,10 +113,10 @@
         },
         "urllib3": {
             "hashes": [
-                "sha256:2f4da4594db7e1e110a944bb1b551fdf4e6c136ad42e4234131391e21eb5b0df",
-                "sha256:e7b021f7241115872f92f43c6508082facffbd1c048e3c6e2bb9c2a157e28937"
+                "sha256:753a0374df26658f99d826cfe40394a686d05985786d946fbe4165b5148f5a7c",
+                "sha256:a7acd0977125325f516bda9735fa7142b909a8d01e8b2e4c8108d0984e6e0098"
             ],
-            "version": "==1.26.4"
+            "version": "==1.26.5"
         }
     },
     "develop": {
@@ -477,10 +480,10 @@
         },
         "urllib3": {
             "hashes": [
-                "sha256:2f4da4594db7e1e110a944bb1b551fdf4e6c136ad42e4234131391e21eb5b0df",
-                "sha256:e7b021f7241115872f92f43c6508082facffbd1c048e3c6e2bb9c2a157e28937"
+                "sha256:753a0374df26658f99d826cfe40394a686d05985786d946fbe4165b5148f5a7c",
+                "sha256:a7acd0977125325f516bda9735fa7142b909a8d01e8b2e4c8108d0984e6e0098"
             ],
-            "version": "==1.26.4"
+            "version": "==1.26.5"
         },
         "virtualenv": {
             "hashes": [
