@@ -32,7 +32,7 @@ If you have an [API Key](https://developers.travelperk.com/reference#api-keys-1)
 
 ```python
 from travelperk_http_python.builder.builder import build
-is_sandbox = false
+is_sandbox = False
 travelperk = build("YOUR_API_KEY", is_sandbox)
 ```
 
