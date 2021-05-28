@@ -23,16 +23,22 @@ class TestTravelPerk:
         assert result == response
 
     def test_making_a_post_call(self):
-        assert (
-            self.travelperk.post("sampleurl", [])
-            == "https://api.travelperk.com/sampleurl"
+        response = {"data": "test_data"}
+        self.client.post.return_value = response
+        result = self.travelperk.post("sampleurl", {"data": "test"})
+        self.client.post.assert_called_once_with(
+            "https://api.travelperk.com/sampleurl", {"data": "test"}
         )
+        assert result == response
 
     def test_making_a_put_call(self):
-        assert (
-            self.travelperk.put("sampleurl", [])
-            == "https://api.travelperk.com/sampleurl"
+        response = {"data": "test_data"}
+        self.client.put.return_value = response
+        result = self.travelperk.put("sampleurl", {"data": "test"})
+        self.client.put.assert_called_once_with(
+            "https://api.travelperk.com/sampleurl", {"data": "test"}
         )
+        assert result == response
 
     def test_making_a_patch_call(self):
         response = {"data": "test_data"}
@@ -44,9 +50,9 @@ class TestTravelPerk:
         assert result == response
 
     def test_making_a_delete_call(self):
-        assert (
-            self.travelperk.delete("sampleurl")
-            == "https://api.travelperk.com/sampleurl"
+        self.travelperk.delete("sampleurl")
+        self.client.delete.assert_called_once_with(
+            "https://api.travelperk.com/sampleurl"
         )
 
     def test_getting_an_expenses_instance(self):

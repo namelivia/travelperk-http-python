@@ -34,22 +34,16 @@ class TravelPerk:
         return self.client.get(self.base_url + url)
 
     def post(self, url: str, params: List[str]) -> str:
-        # return self.client.post(
-        return self.base_url + url
-        # ).get_body().get_contents()
+        return self.client.post(self.base_url + url, params)
 
     def patch(self, url: str, params: dict) -> dict:
         return self.client.patch(self.base_url + url, params)
 
     def put(self, url: str, params: List[str]) -> str:
-        # return self.client.put(
-        return self.base_url + url
-        # ).get_body().get_contents()
+        return self.client.put(self.base_url + url, params)
 
     def delete(self, url: str) -> str:
-        # return self.client.delete(
-        return self.base_url + url
-        # ).get_body().get_contents()
+        return self.client.delete(self.base_url + url)
 
     def set_authorization_code(self, authorization_code: str) -> "TravelPerk":
         # self.client.set_authorization_code(authorization_code)
