@@ -36,7 +36,7 @@ class TestTravelSafe:
         assert restriction.summary == "Travelling from France to Spain is restricted"
         assert restriction.details == "Only business related travel is allowed."
         assert restriction.start_date == "2020-10-16"
-        assert restriction.end_date == "2020-10-18"
+        assert restriction.end_date is None
         assert restriction.updated_at == "2020-09-16T14:54:59.944581+00:00"
         assert len(restriction.requirements) == 1
         assert restriction.requirements[0].category.id == "quarantine"
@@ -52,7 +52,7 @@ class TestTravelSafe:
             == "Travelers arriving into Spain are required to go into quarantine"
         )
         assert restriction.requirements[0].start_date == "2020-10-02"
-        assert restriction.requirements[0].end_date == "2020-10-18"
+        assert restriction.requirements[0].end_date is None
         assert len(restriction.requirements[0].documents) == 1
         assert restriction.requirements[0].documents[0].name == "FCS form"
         assert (

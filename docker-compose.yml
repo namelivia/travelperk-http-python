@@ -5,6 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      target: development
     container_name: travelperk-http-python
     entrypoint: "pipenv run pytest"
     tty: false
