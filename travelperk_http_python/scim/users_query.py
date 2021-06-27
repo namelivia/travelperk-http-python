@@ -28,11 +28,16 @@ class UsersQuery:
             resource["enterprise_extension"] = resource[
                 "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
             ]
-            del resource["urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"]
-            resource["enterprise_extension"]["manager"]["ref"] = resource[
-                "enterprise_extension"
-            ]["manager"]["$ref"]
-            del resource["enterprise_extension"]["manager"]["$ref"]
+            try:
+                del resource[
+                    "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
+                ]
+                resource["enterprise_extension"]["manager"]["ref"] = resource[
+                    "enterprise_extension"
+                ]["manager"]["$ref"]
+                del resource["enterprise_extension"]["manager"]["$ref"]
+            except KeyError:
+                pass
         # TODO
 
         return response
