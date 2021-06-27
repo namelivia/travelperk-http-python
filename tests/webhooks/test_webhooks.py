@@ -37,7 +37,7 @@ class TestWebhooks:
         assert webhooks.webhooks[0].name == "invoice webhook"
         assert webhooks.webhooks[0].url == "https://mycompany/tkwebhook"
         assert webhooks.webhooks[0].secret == "some secret"
-        assert webhooks.webhooks[0].status == "enabled"
+        assert webhooks.webhooks[0].enabled is True
         assert len(webhooks.webhooks[0].events) == 2
         assert webhooks.webhooks[0].events[0] == "invoice.issued"
         assert webhooks.webhooks[0].events[1] == "invoiceline.created"
@@ -54,7 +54,7 @@ class TestWebhooks:
         assert webhook.name == "invoice webhook"
         assert webhook.url == "https://mycompany.com/tk_webhook"
         assert webhook.secret == "some secret"
-        assert webhook.status == "enabled"
+        assert webhook.enabled is True
         assert len(webhook.events) == 2
         assert webhook.events[0] == "invoice.issued"
         assert webhook.events[1] == "invoiceline.created"
@@ -95,7 +95,7 @@ class TestWebhooks:
         assert new_webhook.name == "invoice webhook"
         assert new_webhook.url == "https://mycompany.com/tk_webhook"
         assert new_webhook.secret == "some secret"
-        assert new_webhook.status == "enabled"
+        assert new_webhook.enabled is True
         assert len(new_webhook.events) == 2
         assert new_webhook.events[0] == "invoice.issued"
         assert new_webhook.events[1] == "invoiceline.created"
@@ -123,7 +123,7 @@ class TestWebhooks:
         assert updated_webhook.name == "invoice webhook"
         assert updated_webhook.url == "https://mycompany.com/tk_webhook"
         assert updated_webhook.secret == "some secret"
-        assert updated_webhook.status == "enabled"
+        assert updated_webhook.enabled is True
         assert len(updated_webhook.events) == 2
         assert updated_webhook.events[0] == "invoice.issued"
         assert updated_webhook.events[1] == "invoiceline.created"
