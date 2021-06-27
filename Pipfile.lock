@@ -97,11 +97,11 @@
         },
         "travelperk-python-api-types": {
             "hashes": [
-                "sha256:af7ce44a950dbbb3f8c0e4295017f1f24ac3bf5da1612ae035ea7ee5997e9ccf",
-                "sha256:cd775714f70675f066e6dbfc8b2f71e7032732220cb155f2ff404d281767832d"
+                "sha256:164780ae0b68d85dcf36220d609eedb4be83f90de9ed1eef0b081134c0bcaf3a",
+                "sha256:559043ee0a793ab81bc2aa76d798c5ad971c415b74ac1a9778d398b3564e2279"
             ],
             "index": "pypi",
-            "version": "==1.0.19"
+            "version": "==1.0.20"
         },
         "typing-extensions": {
             "hashes": [
