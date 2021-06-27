@@ -5,7 +5,7 @@
             "name": "invoice webhook",
             "url": "https://mycompany/tkwebhook",
             "secret": "some secret",
-            "status": "enabled",
+            "enabled": true,
             "events": [
                 "invoice.issued",
                 "invoiceline.created"

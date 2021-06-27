@@ -3,11 +3,11 @@
     "name": "invoice webhook",
     "url": "https://mycompany.com/tk_webhook",
     "secret": "some secret",
-    "status": "enabled",
     "events": [
         "invoice.issued",
         "invoiceline.created"
     ],
+    "enabled": true,
     "successfully_sent": 2,
     "failed_sent": 0,
     "error_rate": 0.0
