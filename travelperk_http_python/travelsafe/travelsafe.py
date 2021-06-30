@@ -9,6 +9,8 @@ from travelperk_python_api_types.travelsafe.summary.summary import Summary
 from travelperk_python_api_types.travelsafe.airline_measures.airline_measure import (
     AirlineMeasure,
 )
+from typing import List
+from .location_type import LocationType
 
 if TYPE_CHECKING:
     from travelperk_http_python.api.travelperk import TravelPerk
@@ -68,5 +70,5 @@ class TravelSafe:
         )
 
     # Get all location types.
-    # def location_types(self, ): array
-    # return LocationType::getConstantValues()
+    def location_types(self) -> List[str]:
+        return [location_type.value for location_type in LocationType]

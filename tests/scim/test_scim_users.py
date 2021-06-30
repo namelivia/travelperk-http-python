@@ -397,10 +397,8 @@ class TestSCIMUsers:
         assert user.travelperk_extension.emergency_contact.name == "Jane Goodie"
         assert user.travelperk_extension.emergency_contact.phone == "+34 9874637"
 
-    # TODO: Implement this
     def test_getting_all_genders(self):
-        pass
+        assert self.users.genders() == ["M", "F"]
 
-    # TODO: Implement this
     def test_getting_all_languages(self):
-        pass
+        assert self.users.languages() == ["en", "fr", "de", "es"]

@@ -49,12 +49,12 @@ class Invoices:
 
     # Get all billing periods.
     def billing_periods(self) -> List[str]:
-        return BillingPeriod.get_constant_values()
+        return [billing_period.value for billing_period in BillingPeriod]
 
     # Get all statuses.
     def statuses(self) -> List[str]:
-        return Status.get_constant_values()
+        return [status.value for status in Status]
 
     # Get all sorting values.
     def sorting(self) -> List[str]:
-        return Sorting.get_constant_values()
+        return [sorting.value for sorting in Sorting]

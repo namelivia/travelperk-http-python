@@ -102,9 +102,9 @@ class Users:
         return ModifyUserRequest(id, self.travelperk, username, active, name)
 
     # Get all genders.
-    def genders(self) -> List:
-        return Gender.get_constant_values()
+    def genders(self) -> List[str]:
+        return [gender.value for gender in Gender]
 
     # Get all languages.
-    def languages(self) -> List:
-        return Language.get_constant_values()
+    def languages(self) -> List[str]:
+        return [language.value for language in Language]

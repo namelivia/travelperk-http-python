@@ -132,6 +132,5 @@ class TestTravelSafe:
         )
         assert safety_measure.updated_at == "2020-10-19T12:14:42.041298+00:00"
 
-    # TODO: Implement this
     def test_getting_all_location_types(self):
-        pass
+        assert self.travelsafe.location_types() == ["country_code", "iata_code"]

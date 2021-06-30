@@ -313,35 +313,24 @@ class TestInvoices:
         invoice_lines = self.invoices.lines()
         self.assert_equals_stub(invoice_lines)
 
-    """
     def test_getting_all_billing_periods(self):
-        self.assertEquals(
-            [
-                'instant',
-                'weekly',
-                'biweekly',
-                'monthly',
-            ],
-            self.invoices.billing_periods()
-        )
+        assert self.invoices.billing_periods() == [
+            "instant",
+            "weekly",
+            "biweekly",
+            "monthly",
+        ]
 
     def test_getting_all_statuses(self):
-        self.assertEquals(
-            [
-                'draft',
-                'open',
-                'paid',
-                'unpaid',
-            ],
-            self.invoices.statuses()
-        )
+        assert self.invoices.statuses() == [
+            "draft",
+            "open",
+            "paid",
+            "unpaid",
+        ]
 
     def test_getting_all_sorting_values(self):
-        self.assertEquals(
-            [
-                'issuing_date',
-                '-issuing_date',
-            ],
-            self.invoices.sorting()
-        )
-    """
+        assert self.invoices.sorting() == [
+            "issuing_date",
+            "-issuing_date",
+        ]
