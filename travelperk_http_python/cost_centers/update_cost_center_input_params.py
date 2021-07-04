@@ -1,4 +1,8 @@
 class UpdateCostCenterInputParams:
+    def __init__(self):
+        self.name = None
+        self.archive = None
+
     def set_name(self, name: str) -> "UpdateCostCenterInputParams":
         self.name = name
         return self
@@ -8,7 +12,8 @@ class UpdateCostCenterInputParams:
         return self
 
     def to_dict(self) -> dict:
-        return {
+        data = {
             "name": self.name,
             "archive": self.archive,
         }
+        return {k: v for k, v in data.items() if v is not None}
