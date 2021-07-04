@@ -1,5 +1,8 @@
 from typing import TYPE_CHECKING
 from .update_cost_center_input_params import UpdateCostCenterInputParams
+from travelperk_python_api_types.cost_centers.cost_centers.cost_center_detail import (
+    CostCenterDetail,
+)
 
 if TYPE_CHECKING:
     from api.travelperk import TravelPerk
@@ -11,10 +14,11 @@ class UpdateCostCenterRequest:
         self.params = UpdateCostCenterInputParams()
         self.travelperk = travelperk
 
-    def save(self) -> dict:
-        # TODO: Typing this return type
-        return self.travelperk.patch(
-            "/".join(["cost_centers", self.id]), self.params.to_dict()
+    def save(self) -> CostCenterDetail:
+        return CostCenterDetail(
+            **self.travelperk.patch(
+                "/".join(["cost_centers", self.id]), self.params.to_dict()
+            )
         )
 
     def set_name(self, name: str) -> "UpdateCostCenterRequest":

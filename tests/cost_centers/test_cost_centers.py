@@ -51,13 +51,17 @@ class TestCostCenters:
 
     def test_modifying_a_cost_center(self):
         cost_center_id = "1a"
-        self.travelperk.patch.return_value = {"response": "data"}
-        self.cost_centers.modify(cost_center_id).set_name("newName").set_archive(
-            False
-        ).save()
+        self.travelperk.patch.return_value = self.get_stub_contents("cost_center.json")
+        cost_center = (
+            self.cost_centers.modify(cost_center_id)
+            .set_name("newName")
+            .set_archive(False)
+            .save()
+        )
         self.travelperk.patch.assert_called_once_with(
             "cost_centers/1a", {"name": "newName", "archive": False}
         )
+        self.assert_equals_cost_center_stub(cost_center)
 
     def test_bulk_updating_cost_centers(self):
         self.travelperk.patch.return_value = self.get_stub_contents("bulk_update.json")
