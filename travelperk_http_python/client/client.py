@@ -25,10 +25,10 @@ class Client:
         return requests.delete(uri).json()
 
     def patch(self, uri: str, data: dict) -> dict:
-        return requests.patch(uri, data=data, headers=self.headers).json()
+        return requests.patch(uri, json=data, headers=self.headers).json()
 
     def post(self, uri: str, data: dict) -> dict:
-        return requests.post(uri, data=data, headers=self.headers).json()
+        return requests.post(uri, json=data, headers=self.headers).json()
 
     def put(self, uri: str, data: dict) -> dict:
-        return requests.put(uri, data=data, headers=self.headers).json()
+        return requests.put(uri, json=data, headers=self.headers).json()
