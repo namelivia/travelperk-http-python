@@ -32,14 +32,20 @@ class ModifyUserRequest:
             response = getattr(self.travelperk, method)(url, params)
 
         # TODO: This won't go here. Ugly fix!
-        response["travelperk_extension"] = response[
-            "urn:ietf:params:scim:schemas:extension:travelperk:2.0:User"
-        ]
-        del response["urn:ietf:params:scim:schemas:extension:travelperk:2.0:User"]
-        response["enterprise_extension"] = response[
-            "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
-        ]
-        del response["urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"]
+        try:
+            response["travelperk_extension"] = response[
+                "urn:ietf:params:scim:schemas:extension:travelperk:2.0:User"
+            ]
+            del response["urn:ietf:params:scim:schemas:extension:travelperk:2.0:User"]
+        except KeyError:
+            pass
+        try:
+            response["enterprise_extension"] = response[
+                "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
+            ]
+            del response["urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"]
+        except KeyError:
+            pass
         try:
             response["enterprise_extension"]["manager"]["ref"] = response[
                 "enterprise_extension"
