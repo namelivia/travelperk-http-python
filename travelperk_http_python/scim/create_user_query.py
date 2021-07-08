@@ -37,10 +37,13 @@ class CreateUserQuery:
             "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
         ]
         del response["urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"]
-        response["enterprise_extension"]["manager"]["ref"] = response[
-            "enterprise_extension"
-        ]["manager"]["$ref"]
-        del response["enterprise_extension"]["manager"]["$ref"]
+        try:
+            response["enterprise_extension"]["manager"]["ref"] = response[
+                "enterprise_extension"
+            ]["manager"]["$ref"]
+            del response["enterprise_extension"]["manager"]["$ref"]
+        except KeyError:
+            pass
         # TODO
 
         return response
