@@ -74,4 +74,4 @@ class TestCostCenters:
         self.travelperk.patch.assert_called_once_with(
             "cost_centers/bulk_update", {"id_list": [1, 2, 3, 4], "archive": False}
         )
-        assert result["updated_count"] == 1
+        assert result.updated_count == 1

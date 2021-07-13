@@ -1,5 +1,8 @@
 from typing import List, TYPE_CHECKING
 from .bulk_update_cost_center_input_params import BulkUpdateCostCenterInputParams
+from travelperk_python_api_types.cost_centers.cost_centers.bulk_update_response import (
+    BulkUpdateResponse,
+)
 
 if TYPE_CHECKING:
     from api.travelperk import TravelPerk
@@ -11,10 +14,11 @@ class BulkUpdateCostCenterRequest:
         self.travelperk = travelperk
 
     def save(self) -> dict:
-        # TODO: Typing this return type
-        return self.travelperk.patch(
-            "/".join(["cost_centers", "bulk_update"]),
-            self.params.to_dict(),
+        return BulkUpdateResponse(
+            **self.travelperk.patch(
+                "/".join(["cost_centers", "bulk_update"]),
+                self.params.to_dict(),
+            )
         )
 
     def set_ids(self, ids: List[int]) -> "BulkUpdateCostCenterRequest":
