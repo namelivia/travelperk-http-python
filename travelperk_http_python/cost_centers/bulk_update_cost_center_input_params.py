@@ -11,8 +11,8 @@ class BulkUpdateCostCenterInputParams:
         return self
 
     def to_dict(self) -> dict:
-        # TODO: Look for the best way to clean None values from a dict
-        return {
+        data = {
             "id_list": self.ids,
             "archive": self.archive,
         }
+        return {k: v for k, v in data.items() if v is not None}
