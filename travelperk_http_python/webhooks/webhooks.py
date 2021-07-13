@@ -45,8 +45,8 @@ class Webhooks:
         return UpdateWebhookRequest(id, self.travelperk)
 
     # Performs a webhook test call.
-    def test(self, id: str) -> dict:
-        return self.travelperk.post("/".join(["webhooks", id, "test"]), [])
+    def test(self, id: str):
+        return self.travelperk.post_raw("/".join(["webhooks", id, "test"]), [])
 
     # Deletes a webhook endpoint.
     def delete(self, id: str) -> str:

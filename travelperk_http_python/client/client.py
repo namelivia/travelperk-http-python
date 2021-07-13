@@ -30,5 +30,8 @@ class Client:
     def post(self, uri: str, data: dict) -> dict:
         return requests.post(uri, json=data, headers=self.headers).json()
 
+    def post_raw(self, uri: str, data: dict):
+        return requests.post(uri, data=data, headers=self.headers)
+
     def put(self, uri: str, data: dict) -> dict:
         return requests.put(uri, json=data, headers=self.headers).json()
