@@ -1,5 +1,8 @@
 from typing import List, TYPE_CHECKING
 from .set_users_for_cost_center_input_params import SetUsersForCostCenterInputParams
+from travelperk_python_api_types.cost_centers.cost_centers.cost_center_detail import (
+    CostCenterDetail,
+)
 
 if TYPE_CHECKING:
     from api.travelperk import TravelPerk
@@ -11,9 +14,9 @@ class SetUsersForCostCenterRequest:
         self.id = id
         self.travelperk = travelperk
 
-    def save(self) -> dict:
-        return json_decode(
-            self.travelperk.put(
+    def save(self) -> CostCenterDetail:
+        return CostCenterDetail(
+            **self.travelperk.put(
                 "/".join(["cost_centers", self.id, "users"]), self.params.to_dict()
             )
         )

@@ -13,7 +13,7 @@ class BulkUpdateCostCenterRequest:
         self.params = BulkUpdateCostCenterInputParams()
         self.travelperk = travelperk
 
-    def save(self) -> dict:
+    def save(self) -> BulkUpdateResponse:
         return BulkUpdateResponse(
             **self.travelperk.patch(
                 "/".join(["cost_centers", "bulk_update"]),
