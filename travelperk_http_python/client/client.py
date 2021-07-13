@@ -22,7 +22,7 @@ class Client:
         return requests.get(uri, headers=self.headers).json()
 
     def delete(self, uri: str) -> dict:
-        return requests.delete(uri).json()
+        return requests.delete(uri, headers=self.headers).json()
 
     def patch(self, uri: str, data: dict) -> dict:
         return requests.patch(uri, json=data, headers=self.headers).json()
