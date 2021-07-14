@@ -102,11 +102,11 @@
         },
         "travelperk-python-api-types": {
             "hashes": [
-                "sha256:04bff00135771cdee4c08689154db940a1ecb5834d81f7c15a93131d167c2a8d",
-                "sha256:7548f52c2938d844f600ddbbfeb97d3539cc108213e2a519b57199377b9acb78"
+                "sha256:0fa0aa70e3019122b5416c918d186a0a65e96146dde5ba9e0489942bc0897b1b",
+                "sha256:cb3c3676f141c0fe811c5d9fa59da6ead3eee418ea1d02344bb3a21152ae41fd"
             ],
             "index": "pypi",
-            "version": "==1.0.26"
+            "version": "==1.0.27"
         },
         "typing-extensions": {
             "hashes": [
@@ -403,11 +403,11 @@
         },
         "python-dateutil": {
             "hashes": [
-                "sha256:73ebfe9dbf22e832286dafa60473e4cd239f8592f699aa5adaf10050e6e1823c",
-                "sha256:75bb3f31ea686f1197762692a9ee6a7550b59fc6ca3a1f4b5d7e32fb98e2da2a"
+                "sha256:0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86",
+                "sha256:961d03dc3453ebbc59dbdea9e4e11c5651520a876d0f4db161e8674aae935da9"
             ],
             "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3'",
-            "version": "==2.8.1"
+            "version": "==2.8.2"
         },
         "pyyaml": {
             "hashes": [
