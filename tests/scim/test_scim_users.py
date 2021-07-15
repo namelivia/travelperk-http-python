@@ -38,7 +38,7 @@ class TestSCIMUsers:
         assert users.resources[0].external_id == "123455667"
         assert users.resources[0].id == "29"
         assert users.resources[0].groups == []
-        assert users.resources[0].active == "True"
+        assert users.resources[0].active is True
         assert users.resources[0].user_name == "marlen.col@mycompany.com"
         assert len(users.resources[0].phone_numbers) == 1
         assert users.resources[0].phone_numbers[0].value == "+34 1234567"
@@ -96,7 +96,7 @@ class TestSCIMUsers:
         assert users.resources[0].external_id == "123455667"
         assert users.resources[0].id == "29"
         assert users.resources[0].groups == []
-        assert users.resources[0].active == "True"
+        assert users.resources[0].active is True
         assert users.resources[0].user_name == "marlen.col@mycompany.com"
         assert len(users.resources[0].phone_numbers) == 1
         assert users.resources[0].phone_numbers[0].value == "+34 1234567"
@@ -167,7 +167,7 @@ class TestSCIMUsers:
         assert user.external_id == "123455667"
         assert user.id == "29"
         assert user.groups == []
-        assert user.active == "True"
+        assert user.active is True
         assert user.user_name == "marlen.col@mycompany.com"
         assert len(user.phone_numbers) == 1
         assert user.phone_numbers[0].value == "+34 1234567"
@@ -239,7 +239,7 @@ class TestSCIMUsers:
         assert user.external_id == "123455667"
         assert user.id == "29"
         assert user.groups == []
-        assert user.active == "True"
+        assert user.active is True
         assert user.user_name == "marlen.col@mycompany.com"
         assert len(user.phone_numbers) == 1
         assert user.phone_numbers[0].value == "+34 1234567"
@@ -297,7 +297,7 @@ class TestSCIMUsers:
         assert user.external_id == "123455667"
         assert user.id == "29"
         assert user.groups == []
-        assert user.active == "True"
+        assert user.active is True
         assert user.user_name == "marlen.col@mycompany.com"
         assert len(user.phone_numbers) == 1
         assert user.phone_numbers[0].value == "+34 1234567"
@@ -373,7 +373,7 @@ class TestSCIMUsers:
         assert user.external_id == "123455667"
         assert user.id == "29"
         assert user.groups == []
-        assert user.active == "True"
+        assert user.active is True
         assert user.user_name == "marlen.col@mycompany.com"
         assert len(user.phone_numbers) == 1
         assert user.phone_numbers[0].value == "+34 1234567"
