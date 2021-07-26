@@ -49,6 +49,12 @@ class TestCostCenters:
         self.travelperk.get.assert_called_once_with("cost_centers/1")
         self.assert_equals_cost_center_stub(cost_center)
 
+    def test_creating_a_cost_center(self):
+        self.travelperk.post.return_value = self.get_stub_contents("cost_center.json")
+        cost_center = self.cost_centers.create("test")
+        self.travelperk.post.assert_called_once_with("cost_centers", {"name": "test"})
+        self.assert_equals_cost_center_stub(cost_center)
+
     def test_modifying_a_cost_center(self):
         cost_center_id = 1
         self.travelperk.patch.return_value = self.get_stub_contents("cost_center.json")
