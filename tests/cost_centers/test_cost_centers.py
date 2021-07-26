@@ -19,7 +19,7 @@ class TestCostCenters:
         assert cost_centers_page.cost_centers[0].count_users == 0
 
     def assert_equals_cost_center_stub(self, cost_center):
-        assert cost_center.id == "1"
+        assert cost_center.id == 1
         assert cost_center.name == "iloveorange"
         assert cost_center.archived is True
         assert len(cost_center.users) == 1
@@ -50,7 +50,7 @@ class TestCostCenters:
         self.assert_equals_cost_center_stub(cost_center)
 
     def test_modifying_a_cost_center(self):
-        cost_center_id = "1a"
+        cost_center_id = 1
         self.travelperk.patch.return_value = self.get_stub_contents("cost_center.json")
         cost_center = (
             self.cost_centers.modify(cost_center_id)
@@ -59,7 +59,7 @@ class TestCostCenters:
             .save()
         )
         self.travelperk.patch.assert_called_once_with(
-            "cost_centers/1a", {"name": "newName", "archive": False}
+            "cost_centers/1", {"name": "newName", "archive": False}
         )
         self.assert_equals_cost_center_stub(cost_center)
 

@@ -9,7 +9,7 @@ if TYPE_CHECKING:
 
 
 class UpdateCostCenterRequest:
-    def __init__(self, id: str, travelperk: "TravelPerk"):
+    def __init__(self, id: int, travelperk: "TravelPerk"):
         self.id = id
         self.params = UpdateCostCenterInputParams()
         self.travelperk = travelperk
@@ -17,7 +17,7 @@ class UpdateCostCenterRequest:
     def save(self) -> CostCenterDetail:
         return CostCenterDetail(
             **self.travelperk.patch(
-                "/".join(["cost_centers", self.id]), self.params.to_dict()
+                "/".join(["cost_centers", str(self.id)]), self.params.to_dict()
             )
         )
 

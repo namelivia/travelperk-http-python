@@ -32,11 +32,11 @@ class CostCenters:
         return CostCentersType(**self.execute("get", "/".join(["cost_centers"])))
 
     # Get cost center detail.
-    def get(self, id: str) -> CostCenterDetail:
+    def get(self, id: int) -> CostCenterDetail:
         return CostCenterDetail(**self.execute("get", "/".join(["cost_centers", id])))
 
     # Update the cost center endpoint.
-    def modify(self, id: str) -> UpdateCostCenterRequest:
+    def modify(self, id: int) -> UpdateCostCenterRequest:
         return UpdateCostCenterRequest(id, self.travelperk)
 
     # Bulk update an several cost centers at once.
@@ -44,5 +44,5 @@ class CostCenters:
         return BulkUpdateCostCenterRequest(self.travelperk)
 
     # Set the users for a cost center.
-    def set_users(self, id: str) -> SetUsersForCostCenterRequest:
+    def set_users(self, id: int) -> SetUsersForCostCenterRequest:
         return SetUsersForCostCenterRequest(id, self.travelperk)
