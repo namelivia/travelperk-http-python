@@ -19,6 +19,7 @@ python_version = "3.8"
 allow_prereleases = true
 
 [packages]
+oauthlib = "*"
 requests-oauthlib = "*"
 requests = "*"
 travelperk-python-api-types = "*"
