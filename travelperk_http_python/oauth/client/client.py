@@ -1,79 +1,71 @@
-from oauth.authorizator.authorizator import Authorizator
-from oauth.missing_code_exception import MissingCodeException
+from requests_oauthlib import OAuth2Session
+from typing import List
+from travelperk_http_python.oauth.constants.constants import TOKEN_URL, AUTHORIZE_URL
 
 
 class Client:
-    def __init__(self, authorizator: Authorizator):
-        # TODO: This class would be a bit different.
-        # Should implement a python oauth client and provide info from the authorizator.
-        # And it will depend a lot on the client used.
-        # Note that this header should be passed in every request:
-        {"Api-Version": "1"}
-
-    def get_auth_uri(self, target_link_uri: str) -> str:
-        return self.authorizator.get_auth_uri(target_link_uri)
+    def __init__(
+        self, client_id: str, client_secret: str, redirect_uri: str, scopes: List[str]
+    ):
+        self.client_secret = client_secret
+        self.oauth = OAuth2Session(client_id, redirect_uri=redirect_uri, scope=scopes)
+        self.headers = {
+            "Api-Version": "1",
+        }
+        self.is_authorized = False
 
     def check_authorized(self) -> None:
-        if not self.authorizator.is_authorized():
-            raise MissingCodeException("No auth code or token")
-        return None
+        if not self.is_authorized:
+            raise Exception("Unauthorized")  # TODO: Custom exception
+
+    def get_auth_uri(self, target_link_uri: str) -> str:
+        authorization_url, state = self.oauth.authorization_url(
+            AUTHORIZE_URL + target_link_uri,
+            # TODO: This should be more sofisticate to avoid vulnerabilities.
+            # https://github.com/namelivia/travelperk-http-php/issues/21
+            # base64 encoded info could be sent to have url, method and also a nonce.
+            # More info here: https://tools.ietf.org/id/draft-bradley-oauth-jwt-encoded-state-08.html
+            state=target_link_uri,
+        )
+        return authorization_url
 
     def set_authorization_code(self, code: str) -> "Client":
-        self.authorizator.set_authorization_code(code)
-        # $this->middlewareFactory->recreateOAuthMiddleware();
+        self.authorization_code = code
+        self.is_authorized = True
+        return self
+
+    # This is not on the PHP version. When could I do it?
+    # Maybe when setting the authorization code?
+    # Maybe before each request if the authorization code is present?
+    def set_token(self) -> "Client":
+        self.token = self.oauth.fetch_token(
+            TOKEN_URL,
+            authorization_response=self.authorization_code,
+            client_secret=self.client_secret,
+        )
         return self
 
     # Checks if authorized before every HTTP method
-    def get(self, uri: str, options=[]):
+    def get(self, uri: str) -> dict:
         self.check_authorized()
-        # return parent::get($uri, $options);
+        return self.oauth.get(uri, headers=self.headers).json()
 
-    def post(self, uri: str, options=[]):
+    def delete(self, uri: str) -> dict:
         self.check_authorized()
-        # return parent::post($uri, $options);
+        return self.oauth.delete(uri, headers=self.headers)
 
-    def put(self, uri: str, options=[]):
+    def post(self, uri: str, data: dict) -> dict:
         self.check_authorized()
-        # return parent::put($uri, $options);
+        return self.oauth.post(uri, json=data, headers=self.headers).json()
 
-    def patch(self, uri: str, options=[]):
+    def post_raw(self, uri: str, data: dict):
         self.check_authorized()
-        # return parent::patch($uri, $options);
+        return self.oauth.post(uri, json=data, headers=self.headers)
 
-    def delete(self, uri: str, options=[]):
+    def put(self, uri: str, data: dict) -> dict:
         self.check_authorized()
-        # return parent::delete($uri, $options);
+        return self.oauth.put(uri, json=data, headers=self.headers).json()
 
-
-# TODO: Here is an example of a python oauth client:
-"""
-class Client:
-    def __init__(self, client_id, client_secret, redirect_uri):
-        pass
-
-    def test(self):
-        scope = [
-            "https://www.googleapis.com/auth/userinfo.email",
-            "https://www.googleapis.com/auth/userinfo.profile",
-        ]
-        oauth = OAuth2Session(client_id, redirect_uri=redirect_uri, scope=scope)
-        authorization_url, state = oauth.authorization_url(
-            "https://accounts.google.com/o/oauth2/auth",
-            # access_type and prompt are Google specific extra
-            # parameters.
-            access_type="offline",
-            prompt="select_account",
-        )
-
-        print "Please go to %s and authorize access." % authorization_url
-        authorization_response = raw_input("Enter the full callback URL")
-
-        token = oauth.fetch_token(
-            "https://accounts.google.com/o/oauth2/token",
-            authorization_response=authorization_response,
-            # Google specific extra parameter used for client
-            # authentication
-            client_secret=client_secret,
-        )
-        r = oauth.get("https://www.googleapis.com/oauth2/v1/userinfo")
-"""
+    def patch(self, uri: str, data: dict) -> dict:
+        self.check_authorized()
+        return self.oauth.patch(uri, json=data, headers=self.headers).json()
