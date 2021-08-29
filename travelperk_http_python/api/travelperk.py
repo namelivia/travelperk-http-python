@@ -27,8 +27,7 @@ class TravelPerk:
         self.base_url = self.SANDBOX_BASE_URL if is_sandbox else self.BASE_URL
 
     def get_auth_uri(self, target_link_uri: str) -> str:
-        # return self.client.get_auth_uri(target_link_uri)
-        return target_link_uri
+        return self.client.get_auth_uri(target_link_uri)
 
     def get(self, url: str) -> dict:
         return self.client.get(self.base_url + url)
