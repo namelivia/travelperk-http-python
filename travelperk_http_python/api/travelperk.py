@@ -49,9 +49,8 @@ class TravelPerk:
         return self.client.delete(self.base_url + url)
 
     def set_authorization_code(self, authorization_code: str) -> "TravelPerk":
-        # self.client.set_authorization_code(authorization_code)
-        # return self
-        return authorization_code
+        self.client.set_authorization_code(authorization_code)
+        return self
 
     def expenses(self) -> ExpensesAPI:
         return self._expenses

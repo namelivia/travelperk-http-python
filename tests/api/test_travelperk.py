@@ -87,4 +87,5 @@ class TestTravelPerk:
         assert self.travelperk.get_auth_uri("target/link/uri") == "target/link/uri"
 
     def test_setting_auth_code(self):
-        assert self.travelperk.set_authorization_code("auth-code") == "auth-code"
+        self.travelperk.set_authorization_code("auth-code")
+        self.client.set_authorization_code.assert_called_once_with("auth-code")
