@@ -38,8 +38,7 @@ travelperk = build("YOUR_API_KEY", is_sandbox)
 
 #### For OAuth Authentication
 
-If you want to use [OAuth](https://developers.travelperk.com/reference#oauth) for authenticating you need to call the Service Provider's `buildOAuth2` method passing your desired access token peristence method, your oauth credentials, an array of scopes your application will be accessing to, and a boolean indicating if you will be using the [sandbox environment](https://developers.travelperk.com/docs/postman-collection#step-2---configure-the-postman-environment) or not like this:
-WIP
+Due to time constrains the OAuth authentication flow is not fully implemented so is not supported yet, see [this GitHub issue](https://github.com/namelivia/travelperk-http-python/issues/10)
 
 ### Retrieving data
 
