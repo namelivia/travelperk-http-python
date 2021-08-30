@@ -26,6 +26,7 @@ class TestTravelSafe:
         self.travelperk.get.assert_called_once_with(
             "travelsafe/restrictions?origin=ES&destination=FR&origin_type=country_code&destination_type=country_code&date=2019-03-21"
         )
+        assert restriction.id == "e7975c43-b098-4530-ad3e-59615b8572ac"
         assert restriction.origin.name == "France"
         assert restriction.origin.type == "country"
         assert restriction.origin.country_code == "FR"
@@ -66,35 +67,35 @@ class TestTravelSafe:
 
     def test_getting_local_summary(self):
         self.travelperk.get.return_value = self.get_stub_contents("summary.json")
-        restriction = self.travelsafe.local_summary("ES", "country_code")
+        summary = self.travelsafe.local_summary("ES", "country_code")
         self.travelperk.get.assert_called_once_with(
             "travelsafe/guidelines?location_type=country_code&location=ES"
         )
         assert (
-            restriction.summary
+            summary.summary
             == "While traveling in Spain you will be required to follow the guidelines introduced by the local government. These regulations are based on risk levels and aimed at improving your safety."
         )
-        assert restriction.details == ""
-        assert restriction.risk_level.id == "high"
-        assert restriction.risk_level.name == "High"
-        assert restriction.risk_level.details == "Covid cases are multiplying"
-        assert restriction.location.name == "Spain"
-        assert restriction.location.type == "country"
-        assert restriction.location.country_code == "ES"
-        assert restriction.updated_at == "2020-10-19T10:08:53.777Z"
-        assert len(restriction.guidelines) == 1
-        assert restriction.guidelines[0].category.id == "use_of_mask"
-        assert restriction.guidelines[0].category.name == "Use of masks"
-        assert restriction.guidelines[0].sub_category.id == "required"
-        assert restriction.guidelines[0].sub_category.name == "Required"
-        assert restriction.guidelines[0].summary == "Use of masks is required"
+        assert summary.details == ""
+        assert summary.risk_level.id == "high"
+        assert summary.risk_level.name == "High"
+        assert summary.risk_level.details == "Covid cases are multiplying"
+        assert summary.location.name == "Spain"
+        assert summary.location.type == "country"
+        assert summary.location.country_code == "ES"
+        assert summary.updated_at == "2020-10-19T10:08:53.777Z"
+        assert len(summary.guidelines) == 1
+        assert summary.guidelines[0].category.id == "use_of_mask"
+        assert summary.guidelines[0].category.name == "Use of masks"
+        assert summary.guidelines[0].sub_category.id == "required"
+        assert summary.guidelines[0].sub_category.name == "Required"
+        assert summary.guidelines[0].summary == "Use of masks is required"
         assert (
-            restriction.guidelines[0].details
+            summary.guidelines[0].details
             == "Use of masks in all the public areas is required, including open spaces. You might face fines up to €3000 if stopped by the police without mask."
         )
-        assert restriction.guidelines[0].severity == "1/3"
-        assert restriction.info_source.name == "Spain Travel Health"
-        assert restriction.info_source.url == "https://www.spth.gob.es/"
+        assert summary.guidelines[0].severity == "1/3"
+        assert summary.info_source.name == "Spain Travel Health"
+        assert summary.info_source.url == "https://www.spth.gob.es/"
 
     def test_airline_safety_measures(self):
         self.travelperk.get.return_value = self.get_stub_contents(
