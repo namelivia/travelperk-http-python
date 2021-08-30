@@ -71,6 +71,7 @@ class TestTravelSafe:
         self.travelperk.get.assert_called_once_with(
             "travelsafe/guidelines?location_type=country_code&location=ES"
         )
+        assert summary.id == "872aca1b-04ca-47d2-83d8-493b4c7b6148"
         assert (
             summary.summary
             == "While traveling in Spain you will be required to follow the guidelines introduced by the local government. These regulations are based on risk levels and aimed at improving your safety."
