@@ -18,20 +18,25 @@ class Client:
             "No authorization URI for simple api key authentication"
         )
 
+    def _get_content(self, response):
+        if (
+            "Content-Type" in response.headers
+            and "json" in response.headers["Content-Type"]
+        ):
+            return response.json()
+        return response
+
     def get(self, uri: str) -> dict:
-        return requests.get(uri, headers=self.headers).json()
+        return self._get_content(requests.get(uri, headers=self.headers))
 
     def delete(self, uri: str) -> dict:
-        return requests.delete(uri, headers=self.headers)
+        return self._get_content(requests.delete(uri, headers=self.headers))
 
     def patch(self, uri: str, data: dict) -> dict:
-        return requests.patch(uri, json=data, headers=self.headers).json()
+        return self._get_content(requests.patch(uri, json=data, headers=self.headers))
 
     def post(self, uri: str, data: dict) -> dict:
-        return requests.post(uri, json=data, headers=self.headers).json()
-
-    def post_raw(self, uri: str, data: dict):
-        return requests.post(uri, data=data, headers=self.headers)
+        return self._get_content(requests.post(uri, json=data, headers=self.headers))
 
     def put(self, uri: str, data: dict) -> dict:
-        return requests.put(uri, json=data, headers=self.headers).json()
+        return self._get_content(requests.put(uri, json=data, headers=self.headers))

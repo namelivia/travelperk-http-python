@@ -63,10 +63,10 @@ class TestWebhooks:
         assert webhook.error_rate == 0.0
 
     def test_testing_a_webhook(self):
-        self.travelperk.post_raw.return_value = "webhookTestResponse"
+        self.travelperk.post.return_value = "webhookTestResponse"
         webhook_id = "1a"
         assert "webhookTestResponse" == self.webhooks.test(webhook_id)
-        self.travelperk.post_raw.assert_called_once_with("webhooks/1a/test", [])
+        self.travelperk.post.assert_called_once_with("webhooks/1a/test", [])
 
     def test_deleting_a_webhook(self):
         self.travelperk.delete.return_value = "webhookDeleted"

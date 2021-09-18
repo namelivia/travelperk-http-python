@@ -36,9 +36,6 @@ class TravelPerk:
     def post(self, url: str, params: List[str]) -> str:
         return self.client.post(self.base_url + url, params)
 
-    def post_raw(self, url: str, params: List[str]):
-        return self.client.post_raw(self.base_url + url, params)
-
     def patch(self, url: str, params: dict) -> dict:
         return self.client.patch(self.base_url + url, params)
 
