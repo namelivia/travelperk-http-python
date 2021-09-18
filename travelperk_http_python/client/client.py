@@ -19,6 +19,7 @@ class Client:
         )
 
     def _get_content(self, response):
+        response.raise_for_status()
         if (
             "Content-Type" in response.headers
             and "json" in response.headers["Content-Type"]
