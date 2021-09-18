@@ -1,0 +1,2 @@
+class TravelPerkHttpException(Exception):
+    pass

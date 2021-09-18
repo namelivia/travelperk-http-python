@@ -1,4 +1,7 @@
 import requests
+from travelperk_http_python.exceptions.travelperk_http_exception import (
+    TravelPerkHttpException,
+)
 
 
 class Client:
@@ -19,13 +22,14 @@ class Client:
         )
 
     def _get_content(self, response):
-        response.raise_for_status()
+        if response.status_code != 200:
+            raise TravelPerkHttpException(response.text)
         if (
             "Content-Type" in response.headers
             and "json" in response.headers["Content-Type"]
         ):
             return response.json()
-        return response
+        return response.text
 
     def get(self, uri: str) -> dict:
         return self._get_content(requests.get(uri, headers=self.headers))
