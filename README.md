@@ -44,7 +44,7 @@ Due to time constrains the OAuth authentication flow is not fully implemented so
 
 Everything is ready, you can start asking for the data.
 ```python
-travelperk.expenses.invoices.all()
+travelperk.expenses().invoices().all()
 ```
 For further information refer to the documentation linked in the next section.
 
