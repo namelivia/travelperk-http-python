@@ -22,7 +22,7 @@ class Client:
         )
 
     def _get_content(self, response):
-        if response.status_code != 200:
+        if response.status_code // 100 == 2:
             raise TravelPerkHttpException(response.text)
         if (
             "Content-Type" in response.headers
