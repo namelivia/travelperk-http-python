@@ -58,3 +58,13 @@ class TestClient:
         m_get.return_value = response
         response = self.client.get("some_url")
         assert response["data"] == "this_is_some_content_string_that_needs_to_be_long"
+
+    @patch("requests.get")
+    def test_getting_content_for_empty_2xx_json_response(self, m_get):
+        response = Response()
+        response.status_code = 200
+        response.headers = {"Content-Type": "application/json"}
+        response._content = str.encode("")
+        m_get.return_value = response
+        response = self.client.get("some_url")
+        assert response == ""

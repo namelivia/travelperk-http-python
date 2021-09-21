@@ -28,7 +28,10 @@ class Client:
             "Content-Type" in response.headers
             and "json" in response.headers["Content-Type"]
         ):
-            return response.json()
+            try:
+                return response.json()
+            except ValueError:
+                pass
         return response.text
 
     def get(self, uri: str) -> dict:
