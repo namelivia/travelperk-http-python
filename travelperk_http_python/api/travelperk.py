@@ -13,7 +13,7 @@ from travelperk_http_python.client.client import Client
 
 class TravelPerk:
     BASE_URL = "https://api.travelperk.com/"
-    SANDBOX_BASE_URL = "https://sandbox.travelperk.com/"
+    SANDBOX_BASE_URL = "https://api.sandbox-travelperk.com/"
 
     def __init__(self, client: Client, is_sandbox: bool):
         self.client = client

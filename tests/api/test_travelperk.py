@@ -80,7 +80,7 @@ class TestTravelPerk:
         travelperk = TravelPerk(self.client, True)
         travelperk.get("sampleurl")
         self.client.get.assert_called_once_with(
-            "https://sandbox.travelperk.com/sampleurl"
+            "https://api.sandbox-travelperk.com/sampleurl"
         )
 
     def test_getting_auth_uri(self):
