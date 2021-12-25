@@ -6,6 +6,7 @@ from travelperk_http_python.travelsafe.travel_restriction_params import (
 )
 from travelperk_http_python.travelsafe.local_summary_params import LocalSummaryParams
 from travelperk_python_api_types.travelsafe.summary.summary import Summary
+from travelperk_http_python.dataclass_wrapper.dataclass_wrapper import DataclassWrapper
 from travelperk_python_api_types.travelsafe.airline_measures.airline_measure import (
     AirlineMeasure,
 )
@@ -40,33 +41,36 @@ class TravelSafe:
             origin, destination, origin_type, destination_type, date
         )
 
-        return Restriction(
-            **self.execute(
+        return DataclassWrapper.wrap(
+            Restriction,
+            self.execute(
                 "get",
                 "/".join(["travelsafe", "restrictions"]) + "?" + params.as_url_param(),
-            )
+            ),
         )
 
     # Retrieve the local summary.
     def local_summary(self, location: str, location_type: str) -> Summary:
         params = LocalSummaryParams(location, location_type)
 
-        return Summary(
-            **self.execute(
+        return DataclassWrapper.wrap(
+            Summary,
+            self.execute(
                 "get",
                 "/".join(["travelsafe", "guidelines"]) + "?" + params.as_url_param(),
-            )
+            ),
         )
 
     # Retrieve airline safety measures.
     def airline_safety_measures(self, iata: str) -> AirlineMeasure:
-        return AirlineMeasure(
-            **self.execute(
+        return DataclassWrapper.wrap(
+            AirlineMeasure,
+            self.execute(
                 "get",
                 "/".join(["travelsafe", "airline_safety_measures"])
                 + "?iata_code="
                 + iata,
-            )
+            ),
         )
 
     # Get all location types.

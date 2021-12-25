@@ -10,6 +10,7 @@ from travelperk_http_python.scim.update_user_input_params import UpdateUserInput
 from travelperk_http_python.scim.modify_user_request import ModifyUserRequest
 from travelperk_http_python.scim.language import Language
 from travelperk_http_python.scim.gender import Gender
+from travelperk_http_python.dataclass_wrapper.dataclass_wrapper import DataclassWrapper
 
 if TYPE_CHECKING:
     from api.travelperk import TravelPerk
@@ -52,10 +53,9 @@ class Users:
 
     # Retrieve a user from TravelPerk.
     def get(self, id: int) -> User:
-        return User(
-            **humps.decamelize(
-                self.execute("get", "/".join(["scim", "Users", str(id)]))
-            )
+        return DataclassWrapper.wrap(
+            User,
+            humps.decamelize(self.execute("get", "/".join(["scim", "Users", str(id)]))),
         )
 
     # Deletes a user from TravelPerk.
@@ -75,10 +75,11 @@ class Users:
     ) -> User:
         name = NameInputParams(given_name, family_name)
         params = CreateUserInputParams(username, active, name)
-        return User(
-            **humps.decamelize(
+        return DataclassWrapper.wrap(
+            User,
+            humps.decamelize(
                 self.execute("post", "/".join(["scim", "Users"]), params.to_dict())
-            )
+            ),
         )
 
     # Update an existing user in TravelPerk.
@@ -88,10 +89,11 @@ class Users:
 
     # Replace an existing user in TravelPerk.
     def replace(self, id: int, params: ReplaceUserInputParams) -> User:
-        return User(
-            **humps.decamelize(
+        return DataclassWrapper.wrap(
+            User,
+            humps.decamelize(
                 self.execute("put", "/".join(["scim", "Users", id]), params.to_dict())
-            )
+            ),
         )
 
     # Modify an existing user in TravelPerk.

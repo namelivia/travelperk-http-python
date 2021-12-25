@@ -6,6 +6,7 @@ from travelperk_python_api_types.webhooks.webhooks.webhooks import (
     Webhooks as WebhooksType,
 )
 from travelperk_python_api_types.webhooks.webhooks.event import Event
+from travelperk_http_python.dataclass_wrapper.dataclass_wrapper import DataclassWrapper
 
 if TYPE_CHECKING:
     from travelperk_http_python.api.travelperk import TravelPerk
@@ -25,20 +26,26 @@ class Webhooks:
     # List all events you can subscribe to.
     def events(self) -> List[str]:
         events = self.travelperk.get("/".join(["webhooks", "events"]))
-        return [Event(**event) for event in events]
+        return [DataclassWrapper.wrap(Event, event) for event in events]
 
     # List all webhook subscriptions.
     def all(self) -> WebhooksType:
-        return WebhooksType(**self.execute("get", "/".join(["webhooks"])))
+        return DataclassWrapper.wrap(
+            WebhooksType, self.execute("get", "/".join(["webhooks"]))
+        )
 
     # Get details for a specific webhook endpoint.
     def get(self, id: str) -> Webhook:
-        return Webhook(**self.execute("get", "/".join(["webhooks", id])))
+        return DataclassWrapper.wrap(
+            Webhook, self.execute("get", "/".join(["webhooks", id]))
+        )
 
     # Create a webhook endpoint.
     def create(self, name: str, url: str, secret: str, events: List[str]) -> Webhook:
         params = CreateWebhookInputParams(name, url, secret, events)
-        return Webhook(**self.execute("post", "/".join(["webhooks"]), params.to_dict()))
+        return DataclassWrapper.wrap(
+            Webhook, self.execute("post", "/".join(["webhooks"]), params.to_dict())
+        )
 
     # Update the webhook endpoint.
     def modify(self, id: str) -> UpdateWebhookRequest:

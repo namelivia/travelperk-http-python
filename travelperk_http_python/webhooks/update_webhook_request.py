@@ -1,6 +1,7 @@
 from typing import TYPE_CHECKING, List
 from .update_webhook_input_params import UpdateWebhookInputParams
 from travelperk_python_api_types.webhooks.webhooks.webhook import Webhook
+from travelperk_http_python.dataclass_wrapper.dataclass_wrapper import DataclassWrapper
 
 if TYPE_CHECKING:
     from api.travelperk import TravelPerk
@@ -13,10 +14,11 @@ class UpdateWebhookRequest:
         self.travelperk = travelperk
 
     def save(self) -> Webhook:
-        return Webhook(
-            **self.travelperk.patch(
+        return DataclassWrapper.wrap(
+            Webhook,
+            self.travelperk.patch(
                 "/".join(["webhooks", self.id]), self.params.to_dict()
-            )
+            ),
         )
 
     def set_name(self, name: str) -> "UpdateWebhookRequest":

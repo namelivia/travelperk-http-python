@@ -7,6 +7,7 @@ RUN pip install pipenv
 
 FROM builder AS development
 RUN pipenv install --dev
+EXPOSE 4444
 
 FROM builder AS production
 RUN pipenv install
