@@ -1,4 +1,10 @@
 import inspect
+import logging
+
+
+logging.basicConfig(level=logging.DEBUG)
+
+logger = logging.getLogger(__name__)
 
 
 class DataclassWrapper:
@@ -8,14 +14,18 @@ class DataclassWrapper:
         arguments = class_description.args
         arguments.pop(0)  # Remove self
         filtered_data = {}
-        extra_values = []
         for attr, value in data.items():
             if attr in arguments:
                 filtered_data[attr] = DataclassWrapper._get_filtered_item(
                     value, attr, class_description
                 )
             else:
-                extra_values.append(attr)  # TODO: These should be reported
+                logger.warning(
+                    "Unexpected attribute %s on class %s with value %s",
+                    attr,
+                    _class,
+                    value,
+                )
         return filtered_data
 
     @staticmethod
