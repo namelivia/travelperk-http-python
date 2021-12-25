@@ -10,5 +10,6 @@
     "enabled": true,
     "successfully_sent": 2,
     "failed_sent": 0,
-    "error_rate": 0.0
+    "error_rate": 0.0,
+    "unexpected_attribute": "unexpected_attribute"
 }
