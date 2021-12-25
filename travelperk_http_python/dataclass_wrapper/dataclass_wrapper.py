@@ -37,7 +37,9 @@ class DataclassWrapper:
 
     @staticmethod
     def _is_list_annotation(_class):
-        return _class.__module__ == "typing" and _class.__name__ == "List"
+        return (
+            _class.__module__ == "typing"
+        )  # Simple way of checking if it List[SomeClass]
 
     @staticmethod
     def _get_target_class(attr, class_description):
