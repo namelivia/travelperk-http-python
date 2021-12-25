@@ -35,7 +35,7 @@ class Webhooks:
     # Get details for a specific webhook endpoint.
     def get(self, id: str) -> Webhook:
         return DataclassWrapper.wrap(
-            Webhook, **self.execute("get", "/".join(["webhooks", id]))
+            Webhook, self.execute("get", "/".join(["webhooks", id]))
         )
 
     # Create a webhook endpoint.

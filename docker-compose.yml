@@ -10,5 +10,7 @@ services:
     entrypoint: "pipenv run pytest"
     tty: false
     working_dir: /app
+    ports:
+      - "4444:4444"
     volumes:
       - ./:/app
