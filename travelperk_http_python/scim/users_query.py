@@ -2,6 +2,7 @@ import humps
 from typing import TYPE_CHECKING
 from travelperk_http_python.scim.users_input_params import UsersInputParams
 from travelperk_python_api_types.scim.users.users import Users
+from travelperk_http_python.dataclass_wrapper.dataclass_wrapper import DataclassWrapper
 
 if TYPE_CHECKING:
     from travelperk_http_python.api.travelperk import TravelPerk
@@ -55,11 +56,12 @@ class UsersQuery:
         return self
 
     def get(self) -> Users:
-        return Users(
-            **humps.decamelize(
+        return DataclassWrapper.wrap(
+            Users,
+            humps.decamelize(
                 self.execute(
                     "get",
                     "/".join(["scim", "Users"]) + "?" + self.params.as_url_param(),
                 )
-            )
+            ),
         )

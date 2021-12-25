@@ -26,11 +26,13 @@ class Webhooks:
     # List all events you can subscribe to.
     def events(self) -> List[str]:
         events = self.travelperk.get("/".join(["webhooks", "events"]))
-        return [Event(**event) for event in events]
+        return [DataclassWrapper.wrap(Event, event) for event in events]
 
     # List all webhook subscriptions.
     def all(self) -> WebhooksType:
-        return WebhooksType(**self.execute("get", "/".join(["webhooks"])))
+        return DataclassWrapper.wrap(
+            WebhooksType, self.execute("get", "/".join(["webhooks"]))
+        )
 
     # Get details for a specific webhook endpoint.
     def get(self, id: str) -> Webhook:

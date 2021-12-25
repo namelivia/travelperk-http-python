@@ -4,6 +4,7 @@ from .invoice_lines_input_params import InvoiceLinesInputParams
 from travelperk_python_api_types.expenses.invoice_lines.invoice_lines import (
     InvoiceLines as InvoiceLinesType,
 )
+from travelperk_http_python.dataclass_wrapper.dataclass_wrapper import DataclassWrapper
 
 if TYPE_CHECKING:
     from travelperk_http_python.api.travelperk import TravelPerk
@@ -19,11 +20,12 @@ class InvoiceLinesQuery:
         return getattr(self.travelperk, method)(url)
 
     def get(self) -> InvoiceLinesType:
-        return InvoiceLinesType(
-            **self.execute(
+        return DataclassWrapper.wrap(
+            InvoiceLinesType,
+            self.execute(
                 "get",
                 "/".join(["invoices", "lines"]) + "?" + self.params.as_url_param(),
-            )
+            ),
         )
 
     def set_profile_id(self, profile_id: List[str]) -> "InvoiceLinesQuery":

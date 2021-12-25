@@ -3,6 +3,7 @@ from .set_users_for_cost_center_input_params import SetUsersForCostCenterInputPa
 from travelperk_python_api_types.cost_centers.cost_centers.cost_center_detail import (
     CostCenterDetail,
 )
+from travelperk_http_python.dataclass_wrapper.dataclass_wrapper import DataclassWrapper
 
 if TYPE_CHECKING:
     from api.travelperk import TravelPerk
@@ -15,10 +16,11 @@ class SetUsersForCostCenterRequest:
         self.travelperk = travelperk
 
     def save(self) -> CostCenterDetail:
-        return CostCenterDetail(
-            **self.travelperk.put(
+        return DataclassWrapper.wrap(
+            CostCenterDetail,
+            self.travelperk.put(
                 "/".join(["cost_centers", self.id, "users"]), self.params.to_dict()
-            )
+            ),
         )
 
     def set_ids(self, ids: List[int]) -> "SetUsersForCostCenterRequest":

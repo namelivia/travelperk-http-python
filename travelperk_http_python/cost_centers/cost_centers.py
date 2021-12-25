@@ -10,6 +10,7 @@ from .update_cost_center_request import UpdateCostCenterRequest
 from .bulk_update_cost_center_request import BulkUpdateCostCenterRequest
 from .set_users_for_cost_center_request import SetUsersForCostCenterRequest
 from .create_cost_center_input_params import CreateCostCenterInputParams
+from travelperk_http_python.dataclass_wrapper.dataclass_wrapper import DataclassWrapper
 
 if TYPE_CHECKING:
     from api.travelperk import TravelPerk
@@ -31,17 +32,22 @@ class CostCenters:
     # Create a new cost center.
     def create(self, name: str) -> CostCenterDetail:
         params = CreateCostCenterInputParams(name)
-        return CostCenterDetail(
-            **self.execute("post", "/".join(["cost_centers"]), params.to_dict())
+        return DataclassWrapper.wrap(
+            CostCenterDetail,
+            self.execute("post", "/".join(["cost_centers"]), params.to_dict()),
         )
 
     # List all cost centers.
     def all(self) -> CostCentersType:
-        return CostCentersType(**self.execute("get", "/".join(["cost_centers"])))
+        return DataclassWrapper.wrap(
+            CostCentersType, self.execute("get", "/".join(["cost_centers"]))
+        )
 
     # Get cost center detail.
     def get(self, id: int) -> CostCenterDetail:
-        return CostCenterDetail(**self.execute("get", "/".join(["cost_centers", id])))
+        return DataclassWrapper.wrap(
+            CostCenterDetail, self.execute("get", "/".join(["cost_centers", id]))
+        )
 
     # Update the cost center endpoint.
     def modify(self, id: int) -> UpdateCostCenterRequest:

@@ -3,6 +3,7 @@ from .bulk_update_cost_center_input_params import BulkUpdateCostCenterInputParam
 from travelperk_python_api_types.cost_centers.cost_centers.bulk_update_response import (
     BulkUpdateResponse,
 )
+from travelperk_http_python.dataclass_wrapper.dataclass_wrapper import DataclassWrapper
 
 if TYPE_CHECKING:
     from api.travelperk import TravelPerk
@@ -14,11 +15,12 @@ class BulkUpdateCostCenterRequest:
         self.travelperk = travelperk
 
     def save(self) -> BulkUpdateResponse:
-        return BulkUpdateResponse(
-            **self.travelperk.patch(
+        return DataclassWrapper.wrap(
+            BulkUpdateResponse,
+            self.travelperk.patch(
                 "/".join(["cost_centers", "bulk_update"]),
                 self.params.to_dict(),
-            )
+            ),
         )
 
     def set_ids(self, ids: List[int]) -> "BulkUpdateCostCenterRequest":
