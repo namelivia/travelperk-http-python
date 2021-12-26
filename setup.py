@@ -6,7 +6,7 @@ long_description = (here / "README.md").read_text(encoding="utf-8")
 
 setup(
     name="travelperk-http-python",
-    version="1.0.15",
+    version="1.0.16",
     description="Python SDK for accessing the TravelPerk API ",
     long_description=long_description,
     long_description_content_type="text/markdown",
