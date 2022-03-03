@@ -2,7 +2,7 @@ import urllib
 
 
 class TrainEmissionsParams:
-    def __init__(self, origin_id: str, destination_id: str, vendor: str):
+    def __init__(self, origin_id: str, destination_id: str, vendor: str = None):
         self.set_origin_id(origin_id)
         self.set_destination_id(destination_id)
         self.set_vendor(vendor)
@@ -20,10 +20,9 @@ class TrainEmissionsParams:
         return self
 
     def as_url_param(self) -> str:
-        return urllib.parse.urlencode(
-            {
-                "origin_id": self.origin_id,
-                "destination_id": self.destination_id,
-                "vendor": self.vendor,
-            }
-        )
+        data = {
+            "origin_id": self.origin_id,
+            "destination_id": self.destination_id,
+            "vendor": self.vendor if self.vendor is not None else None,
+        }
+        return urllib.parse.urlencode({k: v for k, v in data.items() if v is not None})

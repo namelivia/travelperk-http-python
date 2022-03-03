@@ -40,7 +40,7 @@ class GreenPerk:
 
     # Get emissions for train.
     def train_emissions(
-        self, origin_id: str, destination_id: str, vendor: str
+        self, origin_id: str, destination_id: str, vendor: str = None
     ) -> Emissions:
         params = TrainEmissionsParams(origin_id, destination_id, vendor)
 
@@ -54,7 +54,7 @@ class GreenPerk:
 
     # Get emissions for car.
     def car_emissions(
-        self, acriss_code: str, num_days: int, distance_per_day: int
+        self, acriss_code: str, num_days: int, distance_per_day: int = None
     ) -> Emissions:
         params = CarEmissionsParams(acriss_code, num_days, distance_per_day)
 

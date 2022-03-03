@@ -37,11 +37,32 @@ class TestGreenPerk:
         assert emissions.emissions.CO2e_kg == 21
         assert emissions.distance_km == 200
 
+    def test_getting_train_emissions_no_vendor(self):
+        self.travelperk.get.return_value = self.get_stub_contents("emissions.json")
+        emissions = self.greenperk.train_emissions(
+            "c44ba069-4109-4b40-815c-bf519c2c2844",
+            "637d125e-9d00-478a-822c-e60c6e219227",
+        )
+        self.travelperk.get.assert_called_once_with(
+            "emissions/train?origin_id=c44ba069-4109-4b40-815c-bf519c2c2844&destination_id=637d125e-9d00-478a-822c-e60c6e219227"
+        )
+        assert emissions.emissions.CO2e_kg == 21
+        assert emissions.distance_km == 200
+
     def test_getting_car_emissions(self):
         self.travelperk.get.return_value = self.get_stub_contents("emissions.json")
         emissions = self.greenperk.car_emissions("MCFD", 2, 100)
         self.travelperk.get.assert_called_once_with(
             "emissions/car?acriss_code=MCFD&num_days=2&distance_per_day=100"
+        )
+        assert emissions.emissions.CO2e_kg == 21
+        assert emissions.distance_km == 200
+
+    def test_getting_car_emissions_no_distance(self):
+        self.travelperk.get.return_value = self.get_stub_contents("emissions.json")
+        emissions = self.greenperk.car_emissions("MCFD", 2)
+        self.travelperk.get.assert_called_once_with(
+            "emissions/car?acriss_code=MCFD&num_days=2"
         )
         assert emissions.emissions.CO2e_kg == 21
         assert emissions.distance_km == 200
