@@ -17,9 +17,9 @@ class TestGreenPerk:
 
     def test_getting_flight_emissions(self):
         self.travelperk.get.return_value = self.get_stub_contents("emissions.json")
-        emissions = self.greenperk.flight_emissions("ES", "FR", "economy", "LHR")
+        emissions = self.greenperk.flight_emissions("BCN", "LHR", "economy", "BA")
         self.travelperk.get.assert_called_once_with(
-            "emissions/flight?origin=ES&destination=FR&cabin_class=economy&airline_code=LHR"
+            "emissions/flight?origin=BCN&destination=LHR&cabin_class=economy&airline_code=BA"
         )
         assert emissions.emissions.CO2e_kg == 21
         assert emissions.distance_km == 200
@@ -53,4 +53,3 @@ class TestGreenPerk:
             "emissions/hotel?country_code=ES&num_nights=2"
         )
         assert emissions.emissions.CO2e_kg == 21
-        assert emissions.distance_km == 200

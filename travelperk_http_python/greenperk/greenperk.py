@@ -1,5 +1,8 @@
 from typing import TYPE_CHECKING
 from travelperk_python_api_types.greenperk.greenperk.emissions import Emissions
+from travelperk_python_api_types.greenperk.greenperk.hotel_emissions import (
+    HotelEmissions,
+)
 from .flight_emissions_params import FlightEmissionsParams
 from .train_emissions_params import TrainEmissionsParams
 from .hotel_emissions_params import HotelEmissionsParams
@@ -68,7 +71,7 @@ class GreenPerk:
         params = HotelEmissionsParams(country_code, num_nights)
 
         return DataclassWrapper.wrap(
-            Emissions,
+            HotelEmissions,
             self.execute(
                 "get",
                 "/".join(["emissions", "hotel"]) + "?" + params.as_url_param(),
