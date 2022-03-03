@@ -3,6 +3,7 @@ from .expenses_api import ExpensesAPI
 from .scim_api import SCIMAPI
 from .webhooks_api import WebhooksAPI
 from .travelsafe_api import TravelSafeAPI
+from .greenperk_api import GreenPerkAPI
 from .users_api import UsersAPI
 from .trips_api import TripsAPI
 from .cost_centers_api import CostCentersAPI
@@ -21,6 +22,7 @@ class TravelPerk:
         self._scim = SCIMAPI(self)
         self._webhooks = WebhooksAPI(self)
         self._travelsafe = TravelSafeAPI(self)
+        self._greenperk = GreenPerkAPI(self)
         self._users = UsersAPI(self)
         self._trips = TripsAPI(self)
         self._cost_centers = CostCentersAPI(self)
@@ -61,6 +63,9 @@ class TravelPerk:
 
     def travelsafe(self) -> TravelSafeAPI:
         return self._travelsafe
+
+    def greenperk(self) -> GreenPerkAPI:
+        return self._greenperk
 
     def users(self) -> UsersAPI:
         return self._users
