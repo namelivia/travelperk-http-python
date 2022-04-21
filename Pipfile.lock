@@ -428,10 +428,10 @@
         },
         "pudb": {
             "hashes": [
-                "sha256:e827a4b489dcad561189535db6677becbf32164b2b44df00786eb2d5e00c587e"
+                "sha256:db3bdd66423c9d29074c1c2c49fcb224bd0d6f08319fed1b4e7ead683914083f"
             ],
             "index": "pypi",
-            "version": "==2022.1"
+            "version": "==2022.1.1"
         },
         "py": {
             "hashes": [
