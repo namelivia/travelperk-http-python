@@ -5,7 +5,7 @@ from travelperk_http_python.oauth.config.config import Config
 
 
 class TestAuthorizator:
-    def setup(self):
+    def setup_method(self):
         self.config = Mock(spec=Config)
         # TODO: Token persistence
         self.scopes = ["expenses:read"]

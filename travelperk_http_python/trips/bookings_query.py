@@ -2,7 +2,7 @@ import datetime
 from typing import TYPE_CHECKING
 from .bookings_input_params import BookingsInputParams
 from travelperk_python_api_types.trips.bookings.bookings import Bookings
-from travelperk_http_python.dataclass_wrapper.dataclass_wrapper import DataclassWrapper
+from dataclass_map_and_log.mapper import DataclassMapper
 
 if TYPE_CHECKING:
     from api.travelperk import TravelPerk
@@ -20,7 +20,7 @@ class BookingsQuery:
         return getattr(self.travelperk, method)(url, params)
 
     def get(self) -> Bookings:
-        return DataclassWrapper.wrap(
+        return DataclassMapper.map(
             Bookings,
             self.execute(
                 "get",

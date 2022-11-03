@@ -9,7 +9,7 @@ from travelperk_http_python.exceptions.travelperk_http_exception import (
 
 
 class TestClient:
-    def setup(self):
+    def setup_method(self):
         self.client = Client("some_api_key")
 
     @patch("requests.get")

@@ -6,7 +6,7 @@ from travelperk_http_python.trips.trips import Trips
 
 
 class TestTrips:
-    def setup(self):
+    def setup_method(self):
         self.travelperk = Mock(spec=TravelPerk)
         self.trips = Trips(self.travelperk)
 

@@ -2,7 +2,7 @@ import humps
 from typing import TYPE_CHECKING
 from travelperk_http_python.scim.users_input_params import UsersInputParams
 from travelperk_python_api_types.scim.users.users import Users
-from travelperk_http_python.dataclass_wrapper.dataclass_wrapper import DataclassWrapper
+from dataclass_map_and_log.mapper import DataclassMapper
 
 if TYPE_CHECKING:
     from travelperk_http_python.api.travelperk import TravelPerk
@@ -56,7 +56,7 @@ class UsersQuery:
         return self
 
     def get(self) -> Users:
-        return DataclassWrapper.wrap(
+        return DataclassMapper.map(
             Users,
             humps.decamelize(
                 self.execute(

@@ -1,7 +1,7 @@
 from typing import TYPE_CHECKING
 from .users_input_params import UsersInputParams
 from travelperk_python_api_types.users.users.users import Users
-from travelperk_http_python.dataclass_wrapper.dataclass_wrapper import DataclassWrapper
+from dataclass_map_and_log.mapper import DataclassMapper
 
 if TYPE_CHECKING:
     from travelperk_http_python.api.travelperk import TravelPerk
@@ -20,7 +20,7 @@ class UsersQuery:
             return getattr(self.travelperk, method)(url, params)
 
     def get(self) -> Users:
-        return DataclassWrapper.wrap(
+        return DataclassMapper.map(
             Users,
             self.execute(
                 "get",

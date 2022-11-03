@@ -9,7 +9,7 @@ from travelperk_http_python.webhooks.update_webhook_input_params import (
 
 
 class TestWebhooks:
-    def setup(self):
+    def setup_method(self):
         self.travelperk = Mock(spec=TravelPerk)
         self.webhooks = Webhooks(self.travelperk)
 

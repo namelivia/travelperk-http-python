@@ -6,7 +6,7 @@ from travelperk_http_python.travelsafe.travel_restriction_params import (
 )
 from travelperk_http_python.travelsafe.local_summary_params import LocalSummaryParams
 from travelperk_python_api_types.travelsafe.summary.summary import Summary
-from travelperk_http_python.dataclass_wrapper.dataclass_wrapper import DataclassWrapper
+from dataclass_map_and_log.mapper import DataclassMapper
 from travelperk_python_api_types.travelsafe.airline_measures.airline_measure import (
     AirlineMeasure,
 )
@@ -41,7 +41,7 @@ class TravelSafe:
             origin, destination, origin_type, destination_type, date
         )
 
-        return DataclassWrapper.wrap(
+        return DataclassMapper.map(
             Restriction,
             self.execute(
                 "get",
@@ -53,7 +53,7 @@ class TravelSafe:
     def local_summary(self, location: str, location_type: str) -> Summary:
         params = LocalSummaryParams(location, location_type)
 
-        return DataclassWrapper.wrap(
+        return DataclassMapper.map(
             Summary,
             self.execute(
                 "get",
@@ -63,7 +63,7 @@ class TravelSafe:
 
     # Retrieve airline safety measures.
     def airline_safety_measures(self, iata: str) -> AirlineMeasure:
-        return DataclassWrapper.wrap(
+        return DataclassMapper.map(
             AirlineMeasure,
             self.execute(
                 "get",

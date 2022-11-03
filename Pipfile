@@ -14,7 +14,7 @@ black = "*"
 pre-commit = "*"
 
 [requires]
-python_version = "3.6"
+python_version = "3.8"
 
 [pipenv]
 allow_prereleases = true
@@ -24,3 +24,5 @@ requests-oauthlib = "*"
 requests = "*"
 travelperk-python-api-types = "*"
 pyhumps = "*"
+pydantic = "==1.8.2"
+dataclass-map-and-log = "*"

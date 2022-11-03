@@ -10,7 +10,7 @@ from .update_cost_center_request import UpdateCostCenterRequest
 from .bulk_update_cost_center_request import BulkUpdateCostCenterRequest
 from .set_users_for_cost_center_request import SetUsersForCostCenterRequest
 from .create_cost_center_input_params import CreateCostCenterInputParams
-from travelperk_http_python.dataclass_wrapper.dataclass_wrapper import DataclassWrapper
+from dataclass_map_and_log.mapper import DataclassMapper
 
 if TYPE_CHECKING:
     from api.travelperk import TravelPerk
@@ -32,20 +32,20 @@ class CostCenters:
     # Create a new cost center.
     def create(self, name: str) -> CostCenterDetail:
         params = CreateCostCenterInputParams(name)
-        return DataclassWrapper.wrap(
+        return DataclassMapper.map(
             CostCenterDetail,
             self.execute("post", "/".join(["cost_centers"]), params.to_dict()),
         )
 
     # List all cost centers.
     def all(self) -> CostCentersType:
-        return DataclassWrapper.wrap(
+        return DataclassMapper.map(
             CostCentersType, self.execute("get", "/".join(["cost_centers"]))
         )
 
     # Get cost center detail.
     def get(self, id: int) -> CostCenterDetail:
-        return DataclassWrapper.wrap(
+        return DataclassMapper.map(
             CostCenterDetail, self.execute("get", "/".join(["cost_centers", id]))
         )
 

@@ -12,7 +12,7 @@ from travelperk_http_python.client.client import Client
 
 
 class TestTravelPerk:
-    def setup(self):
+    def setup_method(self):
         self.client = Mock(spec=Client)
         self.travelperk = TravelPerk(self.client, False)
 
