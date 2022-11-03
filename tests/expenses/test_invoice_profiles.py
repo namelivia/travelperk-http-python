@@ -6,7 +6,7 @@ from travelperk_http_python.expenses.invoice_profiles import InvoiceProfiles
 
 
 class TestInvoiceProfiles:
-    def setup(self):
+    def setup_method(self):
         self.travelperk = Mock(spec=TravelPerk)
         self.invoice_profiles = InvoiceProfiles(self.travelperk)
 

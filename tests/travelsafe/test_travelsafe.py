@@ -8,7 +8,7 @@ from travelperk_http_python.travelsafe.travelsafe import TravelSafe
 
 
 class TestTravelSafe:
-    def setup(self):
+    def setup_method(self):
         self.travelperk = Mock(spec=TravelPerk)
         self.travelsafe = TravelSafe(self.travelperk)
 

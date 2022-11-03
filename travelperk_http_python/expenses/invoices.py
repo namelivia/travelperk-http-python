@@ -11,7 +11,7 @@ from travelperk_python_api_types.expenses.invoices.invoice import (
 from travelperk_python_api_types.expenses.invoice_lines.invoice_lines import (
     InvoiceLines as InvoiceLinesType,
 )
-from travelperk_http_python.dataclass_wrapper.dataclass_wrapper import DataclassWrapper
+from dataclass_map_and_log.mapper import DataclassMapper
 
 if TYPE_CHECKING:
     from travelperk_http_python.api.travelperk import TravelPerk
@@ -31,7 +31,7 @@ class Invoices:
 
     # Get invoice detail.
     def get(self, serial_number: str) -> InvoiceType:
-        return DataclassWrapper.wrap(
+        return DataclassMapper.map(
             InvoiceType, self.execute("get", "/".join(["invoices", serial_number]))
         )
 
@@ -42,7 +42,7 @@ class Invoices:
     # Get list of invoices lines.
     def lines(self, params: InvoiceLinesInputParams = None) -> InvoiceLinesType:
         params = "?" + params.as_url_param() if params is not None else ""
-        return DataclassWrapper.wrap(
+        return DataclassMapper.map(
             InvoiceLinesType,
             self.execute("get", "/".join(["invoices", "lines"]) + params),
         )

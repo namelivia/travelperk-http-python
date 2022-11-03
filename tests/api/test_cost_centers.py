@@ -5,7 +5,7 @@ from travelperk_http_python.cost_centers.cost_centers import CostCenters
 
 
 class TestCostCenters:
-    def setup(self):
+    def setup_method(self):
         self.travelperk = Mock(spec=TravelPerk)
         self.cost_centers = CostCentersAPI(self.travelperk)
 

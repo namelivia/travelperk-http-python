@@ -6,7 +6,7 @@ from travelperk_http_python.greenperk.greenperk import GreenPerk
 
 
 class TestGreenPerk:
-    def setup(self):
+    def setup_method(self):
         self.travelperk = Mock(spec=TravelPerk)
         self.greenperk = GreenPerk(self.travelperk)
 

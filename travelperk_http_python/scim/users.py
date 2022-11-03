@@ -10,7 +10,7 @@ from travelperk_http_python.scim.update_user_input_params import UpdateUserInput
 from travelperk_http_python.scim.modify_user_request import ModifyUserRequest
 from travelperk_http_python.scim.language import Language
 from travelperk_http_python.scim.gender import Gender
-from travelperk_http_python.dataclass_wrapper.dataclass_wrapper import DataclassWrapper
+from dataclass_map_and_log.mapper import DataclassMapper
 
 if TYPE_CHECKING:
     from api.travelperk import TravelPerk
@@ -53,7 +53,7 @@ class Users:
 
     # Retrieve a user from TravelPerk.
     def get(self, id: int) -> User:
-        return DataclassWrapper.wrap(
+        return DataclassMapper.map(
             User,
             humps.decamelize(self.execute("get", "/".join(["scim", "Users", str(id)]))),
         )
@@ -75,7 +75,7 @@ class Users:
     ) -> User:
         name = NameInputParams(given_name, family_name)
         params = CreateUserInputParams(username, active, name)
-        return DataclassWrapper.wrap(
+        return DataclassMapper.map(
             User,
             humps.decamelize(
                 self.execute("post", "/".join(["scim", "Users"]), params.to_dict())
@@ -89,7 +89,7 @@ class Users:
 
     # Replace an existing user in TravelPerk.
     def replace(self, id: int, params: ReplaceUserInputParams) -> User:
-        return DataclassWrapper.wrap(
+        return DataclassMapper.map(
             User,
             humps.decamelize(
                 self.execute("put", "/".join(["scim", "Users", id]), params.to_dict())

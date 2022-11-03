@@ -6,7 +6,7 @@ from travelperk_http_python.scim.name_input_params import NameInputParams
 from travelperk_http_python.scim.replace_user_input_params import ReplaceUserInputParams
 from travelperk_http_python.scim.emergency_contact import EmergencyContact
 from travelperk_python_api_types.scim.users.user import User
-from travelperk_http_python.dataclass_wrapper.dataclass_wrapper import DataclassWrapper
+from dataclass_map_and_log.mapper import DataclassMapper
 
 if TYPE_CHECKING:
     from travelperk_http_python.api.travelperk import TravelPerk
@@ -58,7 +58,7 @@ class ModifyUserRequest:
         return response
 
     def save(self) -> User:
-        return DataclassWrapper.wrap(
+        return DataclassMapper.map(
             User,
             humps.decamelize(
                 self.execute(

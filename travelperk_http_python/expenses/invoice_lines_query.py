@@ -4,7 +4,7 @@ from .invoice_lines_input_params import InvoiceLinesInputParams
 from travelperk_python_api_types.expenses.invoice_lines.invoice_lines import (
     InvoiceLines as InvoiceLinesType,
 )
-from travelperk_http_python.dataclass_wrapper.dataclass_wrapper import DataclassWrapper
+from dataclass_map_and_log.mapper import DataclassMapper
 
 if TYPE_CHECKING:
     from travelperk_http_python.api.travelperk import TravelPerk
@@ -20,7 +20,7 @@ class InvoiceLinesQuery:
         return getattr(self.travelperk, method)(url)
 
     def get(self) -> InvoiceLinesType:
-        return DataclassWrapper.wrap(
+        return DataclassMapper.map(
             InvoiceLinesType,
             self.execute(
                 "get",

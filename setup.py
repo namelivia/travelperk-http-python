@@ -22,7 +22,7 @@ setup(
         "Programming Language :: Python :: 3.9",
     ],
     keywords="travelperk, api",
-    python_requires=">=3.6, <4",
+    python_requires=">=3.8, <4",
     install_requires=[
         "travelperk-python-api-types",
         "requests",

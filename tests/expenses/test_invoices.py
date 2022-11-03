@@ -10,7 +10,7 @@ from travelperk_http_python.expenses.invoices_input_params import InvoicesInputP
 
 
 class TestInvoices:
-    def setup(self):
+    def setup_method(self):
         self.travelperk = Mock(spec=TravelPerk)
         self.invoices = Invoices(self.travelperk)
 

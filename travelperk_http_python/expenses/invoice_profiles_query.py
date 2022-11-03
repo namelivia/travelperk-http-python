@@ -3,7 +3,7 @@ from travelperk_python_api_types.expenses.invoice_profiles.invoice_profiles impo
     InvoiceProfiles as InvoiceProfilesType,
 )
 from .invoice_profiles_input_params import InvoiceProfilesInputParams
-from travelperk_http_python.dataclass_wrapper.dataclass_wrapper import DataclassWrapper
+from dataclass_map_and_log.mapper import DataclassMapper
 
 if TYPE_CHECKING:
     from travelperk_http_python.api.travelperk import TravelPerk
@@ -27,7 +27,7 @@ class InvoiceProfilesQuery:
         return self
 
     def get(self) -> InvoiceProfilesType:
-        return DataclassWrapper.wrap(
+        return DataclassMapper.map(
             InvoiceProfilesType,
             self.execute(
                 "get", "/".join(["profiles"]) + "?" + self.params.as_url_param()

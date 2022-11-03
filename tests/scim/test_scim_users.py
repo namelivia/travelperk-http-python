@@ -7,7 +7,7 @@ from travelperk_http_python.scim.users_input_params import UsersInputParams
 
 
 class TestSCIMUsers:
-    def setup(self):
+    def setup_method(self):
         self.travelperk = Mock(spec=TravelPerk)
         self.users = Users(self.travelperk)
 

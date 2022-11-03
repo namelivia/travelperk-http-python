@@ -4,7 +4,7 @@ from travelperk_http_python.scim.discovery import Discovery
 
 
 class TestDiscovery:
-    def setup(self):
+    def setup_method(self):
         self.travelperk = Mock(spec=TravelPerk)
         self.discovery = Discovery(self.travelperk)
 

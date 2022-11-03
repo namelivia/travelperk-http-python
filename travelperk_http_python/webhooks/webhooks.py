@@ -6,7 +6,7 @@ from travelperk_python_api_types.webhooks.webhooks.webhooks import (
     Webhooks as WebhooksType,
 )
 from travelperk_python_api_types.webhooks.webhooks.event import Event
-from travelperk_http_python.dataclass_wrapper.dataclass_wrapper import DataclassWrapper
+from dataclass_map_and_log.mapper import DataclassMapper
 
 if TYPE_CHECKING:
     from travelperk_http_python.api.travelperk import TravelPerk
@@ -26,24 +26,24 @@ class Webhooks:
     # List all events you can subscribe to.
     def events(self) -> List[str]:
         events = self.travelperk.get("/".join(["webhooks", "events"]))
-        return [DataclassWrapper.wrap(Event, event) for event in events]
+        return [DataclassMapper.map(Event, event) for event in events]
 
     # List all webhook subscriptions.
     def all(self) -> WebhooksType:
-        return DataclassWrapper.wrap(
+        return DataclassMapper.map(
             WebhooksType, self.execute("get", "/".join(["webhooks"]))
         )
 
     # Get details for a specific webhook endpoint.
     def get(self, id: str) -> Webhook:
-        return DataclassWrapper.wrap(
+        return DataclassMapper.map(
             Webhook, self.execute("get", "/".join(["webhooks", id]))
         )
 
     # Create a webhook endpoint.
     def create(self, name: str, url: str, secret: str, events: List[str]) -> Webhook:
         params = CreateWebhookInputParams(name, url, secret, events)
-        return DataclassWrapper.wrap(
+        return DataclassMapper.map(
             Webhook, self.execute("post", "/".join(["webhooks"]), params.to_dict())
         )
 
