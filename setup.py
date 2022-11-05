@@ -27,6 +27,7 @@ setup(
         "travelperk-python-api-types",
         "requests",
         "requests-oauthlib",
+        "dataclass-map-and-log",
         "pyhumps",
     ],
     packages=find_packages(exclude=["*.tests", "*.tests.*", "tests.*", "tests"]),
