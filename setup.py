@@ -6,7 +6,7 @@ long_description = (here / "README.md").read_text(encoding="utf-8")
 
 setup(
     name="travelperk-http-python",
-    version="1.2.1",
+    version="1.2.2",
     description="Python SDK for accessing the TravelPerk API ",
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -28,6 +28,7 @@ setup(
         "requests",
         "requests-oauthlib",
         "pyhumps",
+        "dataclass-map-and-log==0.1.2",
     ],
     packages=find_packages(exclude=["*.tests", "*.tests.*", "tests.*", "tests"]),
     project_urls={
