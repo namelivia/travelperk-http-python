@@ -11,6 +11,7 @@
     "country_code": "ES"
   },
   "authorization_status": "restricted",
+  "authorized_travelers": ["travelers"],
   "summary": "Travelling from France to Spain is restricted",
   "details": "Only business related travel is allowed.",
   "start_date": "2020-10-16",
