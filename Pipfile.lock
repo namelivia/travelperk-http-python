@@ -489,12 +489,12 @@
         },
         "pudb": {
             "hashes": [
-                "sha256:b184af80036ea379a4f79ba7859ecf4fe0681a2b6f46e807f49d1900668f7c66",
-                "sha256:ff5f5395e36a19a65f22f522fd6027d27a36ab783de4511b41c91484ab614975"
+                "sha256:4726c288d9f57845b8dba706c70eb6faaddff9d86e5208eda82216ef5e79cc2e",
+                "sha256:adc9b00042ba8367117df0a6c0dc62fa9609abd21c3bf8e5b73d620907c5b43e"
             ],
             "index": "pypi",
             "markers": "python_version ~= '3.8'",
-            "version": "==2024.1.1"
+            "version": "==2024.1.2"
         },
         "pygments": {
             "hashes": [
