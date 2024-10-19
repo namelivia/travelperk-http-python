@@ -489,12 +489,12 @@
         },
         "pudb": {
             "hashes": [
-                "sha256:4726c288d9f57845b8dba706c70eb6faaddff9d86e5208eda82216ef5e79cc2e",
-                "sha256:adc9b00042ba8367117df0a6c0dc62fa9609abd21c3bf8e5b73d620907c5b43e"
+                "sha256:264f239e0538e52e83d3d020143100b3171cae17227674bb1b9f8b075f34849c",
+                "sha256:b1c64447fcee5848d0376231672b97ca8580ca6d3297c82cba6b0ba5bd5ee640"
             ],
             "index": "pypi",
             "markers": "python_version ~= '3.8'",
-            "version": "==2024.1.2"
+            "version": "==2024.1.3"
         },
         "pygments": {
             "hashes": [
@@ -622,17 +622,17 @@
         },
         "urwid": {
             "hashes": [
-                "sha256:71b3171cabaa0092902f556768756bd2f2ebb24c0da287ee08f081d235340cb7",
-                "sha256:9ecc57330d88c8d9663ffd7092a681674c03ff794b6330ccfef479af7aa9671b"
+                "sha256:93ad239939e44c385e64aa00027878b9e5c486d59e855ec8ab5b1e1adcdb32a2",
+                "sha256:de14896c6df9eb759ed1fd93e0384a5279e51e0dde8f621e4083f7a8368c0797"
             ],
             "markers": "python_version >= '3.8'",
-            "version": "==2.6.15"
+            "version": "==2.6.16"
         },
         "urwid-readline": {
             "hashes": [
-                "sha256:8fabd2e501c124a30d38cfb10610b32f119a615ec0b310ae5591c583fb00bd09"
+                "sha256:9301444b86d58f7d26388506b704f142cefd193888488b4070d3a0fdfcfc0f84"
             ],
-            "version": "==0.14"
+            "version": "==0.15.1"
         },
         "virtualenv": {
             "hashes": [
